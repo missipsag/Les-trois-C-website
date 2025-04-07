@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="hall-floor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34495e" />
+      <stop offset="100%" stop-color="#2c3e50" />
+    </linearGradient>
+    <linearGradient id="hall-wall" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ecf0f1" />
+      <stop offset="100%" stop-color="#bdc3c7" />
+    </linearGradient>
+    <linearGradient id="screen-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3498db" />
+      <stop offset="100%" stop-color="#2980b9" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="3" dy="3" stdDeviation="5" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  
+  <!-- Main Hall Background -->
+  <rect width="800" height="500" fill="url(#hall-wall)" />
+  
+  <!-- Floor -->
+  <rect x="0" y="350" width="800" height="150" fill="url(#hall-floor)" />
+  
+  <!-- Ceiling grid -->
+  <g stroke="#e0e0e0" stroke-width="1">
+    <line x1="0" y1="40" x2="800" y2="40" />
+    <line x1="0" y1="80" x2="800" y2="80" />
+    <line x1="100" y1="0" x2="100" y2="120" />
+    <line x1="200" y1="0" x2="200" y2="120" />
+    <line x1="300" y1="0" x2="300" y2="120" />
+    <line x1="400" y1="0" x2="400" y2="120" />
+    <line x1="500" y1="0" x2="500" y2="120" />
+    <line x1="600" y1="0" x2="600" y2="120" />
+    <line x1="700" y1="0" x2="700" y2="120" />
+  </g>
+  
+  <!-- Stage/Podium -->
+  <rect x="150" y="150" width="500" height="150" rx="0" fill="#95a5a6" stroke="#7f8c8d" stroke-width="5" />
+  <rect x="180" y="150" width="440" height="20" rx="0" fill="#7f8c8d" />
+  
+  <!-- Presentation Screen -->
+  <rect x="250" y="70" width="300" height="200" rx="5" fill="#ffffff" stroke="#95a5a6" stroke-width="8" filter="url(#shadow)" />
+  <rect x="270" y="90" width="260" height="160" rx="3" fill="url(#screen-grad)" />
+  
+  <!-- Chairs in rows -->
+  <g fill="#34495e" stroke="#2c3e50" stroke-width="1">
+    <!-- Row 1 -->
+    <rect x="200" y="380" width="30" height="30" rx="5" />
+    <rect x="250" y="380" width="30" height="30" rx="5" />
+    <rect x="300" y="380" width="30" height="30" rx="5" />
+    <rect x="350" y="380" width="30" height="30" rx="5" />
+    <rect x="400" y="380" width="30" height="30" rx="5" />
+    <rect x="450" y="380" width="30" height="30" rx="5" />
+    <rect x="500" y="380" width="30" height="30" rx="5" />
+    <rect x="550" y="380" width="30" height="30" rx="5" />
+    
+    <!-- Row 2 -->
+    <rect x="200" y="430" width="30" height="30" rx="5" />
+    <rect x="250" y="430" width="30" height="30" rx="5" />
+    <rect x="300" y="430" width="30" height="30" rx="5" />
+    <rect x="350" y="430" width="30" height="30" rx="5" />
+    <rect x="400" y="430" width="30" height="30" rx="5" />
+    <rect x="450" y="430" width="30" height="30" rx="5" />
+    <rect x="500" y="430" width="30" height="30" rx="5" />
+    <rect x="550" y="430" width="30" height="30" rx="5" />
+  </g>
+  
+  <!-- Podium Speaker Stand -->
+  <g transform="translate(350, 200)">
+    <rect x="-25" y="-40" width="50" height="80" fill="#7f8c8d" />
+    <rect x="-35" y="-50" width="70" height="20" rx="3" fill="#7f8c8d" />
+    <rect x="-30" y="-45" width="60" height="10" fill="#95a5a6" />
+  </g>
+  
+  <!-- Ceiling Lights -->
+  <g fill="#f1c40f" opacity="0.7">
+    <rect x="70" y="20" width="60" height="60" rx="5" />
+    <rect x="230" y="20" width="60" height="60" rx="5" />
+    <rect x="390" y="20" width="60" height="60" rx="5" />
+    <rect x="550" y="20" width="60" height="60" rx="5" />
+    <rect x="710" y="20" width="60" height="60" rx="5" />
+  </g>
+  
+  <!-- Speaker's microphone -->
+  <g transform="translate(350, 160)">
+    <line x1="0" y1="0" x2="0" y2="-30" stroke="#2c3e50" stroke-width="3" />
+    <circle cx="0" cy="-35" r="8" fill="#2c3e50" />
+  </g>
+  
+  <!-- Text label -->
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ecf0f1">Salle de Conférence</text>
+</svg>

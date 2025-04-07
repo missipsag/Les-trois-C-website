@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events les trois C - Administration</title>
+    <link rel="stylesheet" href="assets/css/mvp.css">
+    <style>
+        .admin-header {
+            background-image: url('attached_assets/OIP (3).jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .admin-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(58, 28, 113, 0.6);
+            border-radius: 10px;
+            z-index: 1;
+        }
+        
+        .admin-header h1 {
+            color: white;
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .admin-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(58, 28, 113, 0.1);
+            padding-bottom: 1rem;
+        }
+        
+        .admin-tabs .tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            background-color: transparent;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-tabs .tab-btn:hover {
+            background-color: rgba(215, 109, 119, 0.1);
+        }
+        
+        .admin-tabs .tab-btn.active {
+            background-color: rgba(215, 109, 119, 0.15);
+            border-color: rgba(215, 109, 119, 0.3);
+            color: #d76d77;
+        }
+        
+        .service-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(58, 28, 113, 0.1);
+        }
+        
+        .service-tabs .tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background-color: transparent;
+            border: 1px solid transparent;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-tabs .tab-btn img {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .service-tabs .tab-btn:hover {
+            background-color: rgba(215, 109, 119, 0.1);
+        }
+        
+        .service-tabs .tab-btn.active {
+            background-color: rgba(215, 109, 119, 0.15);
+            border-color: rgba(215, 109, 119, 0.3);
+            color: #d76d77;
+        }
+        
+        .tab-icon {
+            width: 24px;
+            height: 24px;
+            opacity: 0.7;
+        }
+        
+        .card-counter {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-counter:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-counter .count {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: #3a1c71;
+        }
+        
+        .card-counter.pending {
+            border-left: 5px solid #f0ad4e;
+        }
+        
+        .card-counter.confirmed {
+            border-left: 5px solid #5bc0de;
+        }
+        
+        .card-counter.completed {
+            border-left: 5px solid #5cb85c;
+        }
+        
+        .card-counter.cancelled {
+            border-left: 5px solid #d9534f;
+        }
+        
+        .filter-row {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-tabs {
+                justify-content: center;
+            }
+            
+            .card-counter {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <img src="attached_assets/OIP (1).jpeg" alt="Events les trois C Logo" height="40" style="border-radius: 50%; object-fit: cover; width: 40px;">
+                    Events les trois C
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span><span></span><span></span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li id="bookingLink"><a href="booking.html">Réservation</a></li>
+                    <li id="adminLink"><a href="admin.html" class="active">Administration</a></li>
+                    <li id="logoutBtn"><a href="#">Déconnexion</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="admin-header">
+            <h1 class="section-title">Tableau de Bord d'Administration</h1>
+        </div>
+        
+        <div class="card">
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="bookings">
+                    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Réservations
+                </button>
+                <button class="tab-btn" data-tab="rooms">
+                    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Salles
+                </button>
+                <button class="tab-btn" data-tab="services">
+                    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    Services
+                </button>
+                <button class="tab-btn" data-tab="users">
+                    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Utilisateurs
+                </button>
+            </div>
+            
+            <!-- Bookings Tab -->
+            <div id="bookingsTab" class="tab-content active">
+                <!-- Booking Stats -->
+                <div class="row mb-4">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card-counter pending">
+                            <h4>En attente</h4>
+                            <div class="count" id="pendingCount">0</div>
+                            <p>réservations à traiter</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card-counter confirmed">
+                            <h4>Confirmées</h4>
+                            <div class="count" id="confirmedCount">0</div>
+                            <p>réservations à venir</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card-counter completed">
+                            <h4>Terminées</h4>
+                            <div class="count" id="completedCount">0</div>
+                            <p>événements passés</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card-counter cancelled">
+                            <h4>Annulées</h4>
+                            <div class="count" id="cancelledCount">0</div>
+                            <p>réservations</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-row">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="bookingStatusFilter">Statut</label>
+                                <select id="bookingStatusFilter" class="form-control">
+                                    <option value="all">Tous</option>
+                                    <option value="pending">En attente</option>
+                                    <option value="confirmed">Confirmé</option>
+                                    <option value="completed">Terminé</option>
+                                    <option value="cancelled">Annulé</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="bookingDateFilter">Date</label>
+                                <input type="date" id="bookingDateFilter" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-end">
+                            <div class="form-group mb-0 d-flex gap-2">
+                                <button id="applyFilters" class="btn btn-secondary">Filtrer</button>
+                                <button id="resetFilters" class="btn btn-secondary">Réinitialiser</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table id="bookingsTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Client</th>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>Salle</th>
+                                <th>Prix</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Booking data will be populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Rooms Tab -->
+            <div id="roomsTab" class="tab-content">
+                <div style="text-align: right; margin-bottom: 15px;">
+                    <button id="addRoomBtn" class="btn btn-primary">Ajouter une salle</button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="roomsTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Capacité</th>
+                                <th>Prix</th>
+                                <th>Disponibilité</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Room data will be populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Services Tab -->
+            <div id="servicesTab" class="tab-content">
+                <div class="service-tabs">
+                    <button class="tab-btn active" data-service="mariage">
+                        <img src="assets/images/wedding-icon.svg" alt="Mariage" width="24" height="24">
+                        Mariage
+                    </button>
+                    <button class="tab-btn" data-service="congres">
+                        <img src="assets/images/congress-icon.svg" alt="Congrès" width="24" height="24">
+                        Congrès
+                    </button>
+                    <button class="tab-btn" data-service="khitan">
+                        <img src="assets/images/khitan-icon.svg" alt="Khitan" width="24" height="24">
+                        Khitan
+                    </button>
+                </div>
+                
+                <div style="text-align: right; margin-bottom: 15px;">
+                    <button id="addServiceBtn" class="btn btn-primary">Ajouter un service</button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="servicesTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prix</th>
+                                <th>Disponibilité</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Service data will be populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Users Tab -->
+            <div id="usersTab" class="tab-content">
+                <div class="table-container">
+                    <table id="usersTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Réservations</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- User data will be populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Events les trois C. Tous droits réservés.</p>
+            
+        </div>
+    </footer>
+
+    <!-- Room Form Modal -->
+    <div class="modal" id="roomModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="roomModalTitle">Ajouter une salle</h3>
+            <form id="roomForm">
+                <input type="hidden" id="roomId">
+                <div class="form-group">
+                    <label for="roomName">Nom de la salle</label>
+                    <input type="text" id="roomName" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomCapacity">Capacité</label>
+                    <input type="number" id="roomCapacity" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomPrice">Prix (€)</label>
+                    <input type="number" id="roomPrice" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomAvailable">Disponible</label>
+                    <select id="roomAvailable">
+                        <option value="true">Oui</option>
+                        <option value="false">Non</option>
+                    </select>
+                </div>
+                <div style="text-align: right; margin-top: 15px;">
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="button" id="cancelRoomBtn" class="btn btn-secondary">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Service Form Modal -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="serviceModalTitle">Ajouter un service</h3>
+            <form id="serviceForm">
+                <input type="hidden" id="serviceId">
+                <div class="form-group">
+                    <label for="serviceName">Nom du service</label>
+                    <input type="text" id="serviceName" required>
+                </div>
+                <div class="form-group">
+                    <label for="serviceType">Type d'événement</label>
+                    <select id="serviceType" required>
+                        <option value="mariage">Mariage</option>
+                        <option value="congres">Congrès</option>
+                        <option value="khitan">Khitan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="servicePrice">Prix (€)</label>
+                    <input type="number" id="servicePrice" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="serviceAvailable">Disponible</label>
+                    <select id="serviceAvailable">
+                        <option value="true">Oui</option>
+                        <option value="false">Non</option>
+                    </select>
+                </div>
+                <div style="text-align: right; margin-top: 15px;">
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="button" id="cancelServiceBtn" class="btn btn-secondary">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Detail Modal -->
+    <div class="modal" id="bookingDetailModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Détails de la réservation</h3>
+            <div id="bookingDetailContent"></div>
+            <div class="form-group">
+                <label for="bookingStatus">Statut</label>
+                <select id="bookingStatus">
+                    <option value="pending">En attente</option>
+                    <option value="confirmed">Confirmé</option>
+                    <option value="completed">Terminé</option>
+                    <option value="cancelled">Annulé</option>
+                </select>
+            </div>
+            <div style="text-align: right; margin-top: 15px;">
+                <button id="updateBookingBtn" class="btn btn-primary">Mettre à jour</button>
+                <button id="closeBookingDetailBtn" class="btn btn-secondary">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error/Success Messages Modal -->
+    <div class="modal" id="messageModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <p id="modalMessage"></p>
+            <button id="modalClose" class="btn btn-primary">Fermer</button>
+        </div>
+    </div>
+
+    <script src="assets/js/admin-mvp.js"></script>
+</body>
+</html>

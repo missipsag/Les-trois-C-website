@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Cactus - Premium Party Rooms</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .room-card {
+            transition: all 0.3s ease;
+        }
+        
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .cactus-icon {
+            color: #22c55e;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #22c55e;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #22c55e;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-cactus text-3xl cactus-icon mr-2"></i>
+                    <span class="title-font text-2xl font-bold text-gray-800">Le Cactus</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#rooms" class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Rooms</a>
+                    <a href="#gallery" class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Gallery</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-700 hover:text-green-600">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-3 px-4">
+            <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-green-600">Home</a>
+            <a href="#rooms" class="block px-3 py-2 text-gray-700 hover:text-green-600">Rooms</a>
+            <a href="#gallery" class="block px-3 py-2 text-gray-700 hover:text-green-600">Gallery</a>
+            <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-green-600">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center justify-center text-center text-white">
+        <div class="max-w-4xl px-4">
+            <h1 class="title-font text-5xl md:text-7xl font-bold mb-6">Le Cactus</h1>
+            <p class="text-xl md:text-2xl mb-10">Where every occasion blossoms into an unforgettable experience</p>
+            <a href="#rooms" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">
+                Explore Our Rooms
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-4xl font-bold text-gray-800 mb-4">Our Story</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-gray-600 text-lg">
+                    Le Cactus is a premier event space offering three distinct venues for conferences, weddings, and special occasions. 
+                    With our elegant decor, state-of-the-art facilities, and exceptional service, we provide the perfect backdrop for your most important moments.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <i class="fas fa-calendar-check text-5xl cactus-icon mb-4"></i>
+                    <h3 class="title-font text-2xl font-semibold mb-3">15+ Years</h3>
+                    <p class="text-gray-600">Of creating memorable events for our clients</p>
+                </div>
+                <div class="text-center p-6">
+                    <i class="fas fa-users text-5xl cactus-icon mb-4"></i>
+                    <h3 class="title-font text-2xl font-semibold mb-3">5000+ Events</h3>
+                    <p class="text-gray-600">Successfully hosted with rave reviews</p>
+                </div>
+                <div class="text-center p-6">
+                    <i class="fas fa-star text-5xl cactus-icon mb-4"></i>
+                    <h3 class="title-font text-2xl font-semibold mb-3">Award Winning</h3>
+                    <p class="text-gray-600">Recognized for excellence in event hosting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-4xl font-bold text-gray-800 mb-4">Our Rooms</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-gray-600 text-lg">
+                    Choose from our three beautifully designed spaces, each tailored for different types of events
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Conference Room -->
+                <div class="room-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1568219656418-15c329312bf1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Conference Room" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Conference Room</h3>
+                        <p class="text-gray-600 mb-4">Professional setting for business meetings, seminars, and corporate events</p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2">Capacity: 50-100</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2">AV Equipment</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Catering Available</span>
+                        </div>
+                        <button onclick="openModal('conference')" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Wedding Room -->
+                <div class="room-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Wedding Room" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Wedding Room</h3>
+                        <p class="text-gray-600 mb-4">Elegant space perfect for ceremonies, receptions, and romantic celebrations</p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2">Capacity: 150-200</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2">Dance Floor</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Bridal Suite</span>
+                        </div>
+                        <button onclick="openModal('wedding')" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Special Occasions Room -->
+                <div class="room-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Special Occasions Room" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="title-font text-2xl font-bold mb-2">Special Occasions</h3>
+                        <p class="text-gray-600 mb-4">Versatile venue for birthdays, anniversaries, and all your milestone celebrations</p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2">Capacity: 80-120</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2">Custom Decor</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Themed Events</span>
+                        </div>
+                        <button onclick="openModal('special')" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-4xl font-bold text-gray-800 mb-4">Gallery</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-gray-600 text-lg">
+                    Take a look at some of our beautifully hosted events
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Event 1" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Event 2" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Event 3" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Event 4" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Event 5" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Event 6" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Event 7" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Event 8" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto mb-6"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Le Cactus made our wedding day absolutely magical. The staff went above and beyond to ensure everything was perfect."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <p class="text-gray-500 text-sm">Wedding Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Our annual conference was a huge success thanks to the professional setup and excellent service at Le Cactus."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Michael T.</h4>
+                            <p class="text-gray-500 text-sm">Corporate Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"My daughter's quinceañera was unforgettable. The special occasions room was transformed into a fairy tale setting!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Maria G." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Maria G.</h4>
+                            <p class="text-gray-500 text-sm">Special Event Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-4xl font-bold text-gray-800 mb-4">Contact Us</h2>
+                <div class="w-24 h-1 bg-green-600 mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-gray-600 text-lg">
+                    Have questions or ready to book your event? Reach out to our team today.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="title-font text-2xl font-semibold mb-6">Get In Touch</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-2xl cactus-icon"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-800">Address</h4>
+                                <p class="text-gray-600">123 Event Avenue, Suite 100<br>Cityville, ST 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-phone-alt text-2xl cactus-icon"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-800">Phone</h4>
+                                <p class="text-gray-600">(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-envelope text-2xl cactus-icon"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-800">Email</h4>
+                                <p class="text-gray-600">events@lecactus.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-clock text-2xl cactus-icon"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-gray-800">Hours</h4>
+                                <p class="text-gray-600">Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="font-bold text-gray-800 mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-600 hover:text-green-600 text-2xl"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-green-600 text-2xl"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-green-600 text-2xl"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-green-600 text-2xl"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="title-font text-2xl font-semibold mb-6">Send Us a Message</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:border-green-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:border-green-500">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:border-green-500">
+                        </div>
+                        <div>
+                            <label for="event-type" class="block text-sm font-medium text-gray-700 mb-1">Event Type</label>
+                            <select id="event-type" name="event-type" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:border-green-500">
+                                <option value="">Select an option</option>
+                                <option value="conference">Conference</option>
+                                <option value="wedding">Wedding</option>
+                                <option value="special">Special Occasion</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:border-green-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-cactus text-3xl cactus-icon mr-2"></i>
+                        <span class="title-font text-2xl font-bold">Le Cactus</span>
+                    </div>
+                    <p class="text-gray-400">Creating unforgettable experiences in our beautifully designed event spaces.</p>
+                </div>
+                <div>
+                    <h4 class="title-font text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#rooms" class="text-gray-400 hover:text-white transition duration-300">Rooms</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition duration-300">Gallery</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="title-font text-lg font-semibold mb-4">Rooms</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Conference Room</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Wedding Room</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Special Occasions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="title-font text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on special offers and events.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-md text-gray-800">
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-md">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2023 Le Cactus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg max-w-md w-full mx-4 overflow-hidden">
+            <div class="flex justify-between items-center bg-green-600 px-6 py-4">
+                <h3 id="modal-title" class="text-xl font-bold text-white">Book Conference Room</h3>
+                <button onclick="closeModal()" class="text-white hover:text-gray-200">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="booking-form">
+                    <input type="hidden" id="room-type" name="room-type" value="">
+                    <div class="mb-4">
+                        <label for="booking-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="booking-name" name="booking-name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:border-green-500">
+                    </div>
+                    <div class="mb-4">
+                        <label for="booking-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="booking-email" name="booking-email" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:border-green-500">
+                    </div>
+                    <div class="mb-4">
+                        <label for="booking-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                        <input type="tel" id="booking-phone" name="booking-phone" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:border-green-500">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="booking-date" class="block text-sm font-medium text-gray-700 mb-1">Event Date</label>
+                            <input type="date" id="booking-date" name="booking-date" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:border-green-500">
+                        </div>
+                        <div>
+                            <label for="booking-guests" class="block text-sm font-medium text-gray-700 mb-1">Number of Guests</label>
+                            <input type="number" id="booking-guests" name="booking-guests" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:border-green-500">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="booking-notes" class="block text-sm font-medium text-gray-700 mb-1">Special Requests</label>
+                        <textarea id="booking-notes" name="booking-notes" rows="3" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:border-green-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded transition duration-300">
+                        Submit Booking Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg max-w-md w-full mx-4 p-6 text-center">
+            <div class="text-green-500 text-6xl mb-4">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Thank You!</h3>
+            <p class="text-gray-600 mb-6">Your booking request has been submitted successfully. Our team will contact you shortly to confirm your reservation.</p>
+            <button onclick="closeSuccessModal()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded transition duration-300">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Booking modal functions
+        function openModal(roomType) {
+            const modal = document.getElementById('booking-modal');
+            const title = document.getElementById('modal-title');
+            const roomTypeInput = document.getElementById('room-type');
+            
+            // Set modal title based on room type
+            if (roomType === 'conference') {
+                title.textContent = 'Book Conference Room';
+            } else if (roomType === 'wedding') {
+                title.textContent = 'Book Wedding Room';
+            } else if (roomType === 'special') {
+                title.textContent = 'Book Special Occasions Room';
+            }
+            
+            // Set hidden input value
+            roomTypeInput.value = roomType;
+            
+            // Show modal
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+
+        // Form submission handling
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            // For this demo, we'll just show the success message
+            
+            closeModal();
+            document.getElementById('success-modal').classList.remove('hidden');
+            
+            // Reset form
+            this.reset();
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            // For this demo, we'll just show an alert
+            
+            alert('Thank you for your message! We will get back to you soon.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

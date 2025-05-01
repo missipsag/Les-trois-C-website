@@ -16,5 +16,9 @@
   "main": "index.js",
   "scripts": {
     "test": "node --watch index.js"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^5.1.0"
   }
 }

@@ -8,6 +8,16 @@ if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
 }
 
+// #Todos: 
+/* 
+    ! add ejs engine 
+    ! add session and cookies
+    ! add flash toasts
+
+
+*/ 
+
+
 let connectDb = mysql.createConnection({
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER, 
@@ -22,3 +32,8 @@ connectDb.connect(function (err) {
     }
     else console.log("MySQL DATABASE CONNECTED".blue);        
 });
+ 
+
+App.listen(PORT, ()=>{
+    console.log(`SERVER RUNNING ON PORT ${PORT}`.blue);
+})

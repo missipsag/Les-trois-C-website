@@ -15,7 +15,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "node --watch index.js"
+    "dev": "node --watch index.js"
   },
   "dependencies": {
     "colors": "^1.4.0",

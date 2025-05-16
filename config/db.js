@@ -1,24 +1,33 @@
+const { Module } = require("module");
 const mysql = require("mysql2"); 
 const { promisify } = require("util");
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
 }
 
-const SQL_CREATE_USER_TABLE = "   CREATE TABLE USERS IF NOT EXISTS ("
+const SQL_CREATE_USER_TABLE = "   CREATE TABLE  IF NOT EXISTS users ("
     + "userId varchar(255) UNIQUE PRIMARY KEY NOT NULL,"
     + "firstName varchar(255) NOT NULL ,"
     + "lastName varchar(255) NOT NULL,"
     + "email varchar(255) NOT NULL,"
     + "phone varchar(255),"
-    + "role ENUM (user, admin),"
-    + ");"; 
+    + "role ENUM ('user', 'admin')"
+    + ");";
 
-const SQL_CREATE_ROOMS_TABLE = "CREATE TABLE ROOMS IF NOT EXISTS ("
-    + "roomId varchar(255) NOT NULL PRIMARY KEY"
+const SQL_CREATE_ROOMS_TABLE = "CREATE TABLE IF NOT EXISTS rooms ("
+    + "roomId varchar(255) NOT NULL PRIMARY KEY,"
     + "roomName varchar(255) ,"
     + "capacity INTEGER NOT NULL "
     + " );";
     
+const SQL_CREATE_RESERVATION_TABLE = "CREATE TABLE IF NOT EXISTS reservations ("
+    + "reservationId varchar(255) NOT NULL PRIMARY KEY,"
+    + "roomId varchar(255) NOT NULL,"
+    + "userId varchar(255) NOT NULL,"
+    + "date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,"
+    + "FOREIGN KEY (roomId) REFERENCES rooms(roomId),"
+    + "FOREIGN KEY (userId) REFERENCES users(userId)"
+    + ");"
 
 const connectDB = mysql.createConnection({
     host: process.env.MYSQL_HOST,
@@ -28,12 +37,13 @@ const connectDB = mysql.createConnection({
 })
 
 
-exports.promiseConnection = promisify(connectDB.query).bind(connectDB);
+promiseConnection = promisify(connectDB.query).bind(connectDB);
 
-exports.initDb = async () => {
-    console.log("INITIALIZING DATABASE...")
+module.exports.initDb = async () => {
+    console.log("INITIALIZING DATABASE...");
     await promiseConnection(SQL_CREATE_USER_TABLE);
-    await this.promiseConnection(SQL_CREATE_ROOMS_TABLE);
+    await promiseConnection(SQL_CREATE_ROOMS_TABLE);
+    await promiseConnection(SQL_CREATE_RESERVATION_TABLE);
 }
 
 connectDB.connect(function (err) {
@@ -45,5 +55,4 @@ connectDB.connect(function (err) {
     }
 });
 
-
-module.exports = connectDB;
+module.exports.connectDB;

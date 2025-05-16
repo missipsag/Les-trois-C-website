@@ -2,7 +2,7 @@ const express = require("express");
 const colors = require("colors");
 const PORT = 3000;
 const mysql = require("mysql2");
-const connectDB = require('./config/db.js');
+const {connectDB, initDb} = require('./config/db.js');
 const App = express();
 const session = require("express-session");
 
@@ -33,7 +33,7 @@ App.use(session(SESSION_CONFIG));
 
 */
 
-
+initDb()
 
 App.listen(PORT, () => {
     console.log(`SERVER RUNNING ON PORT ${PORT}`.blue);

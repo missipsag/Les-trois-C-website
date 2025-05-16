@@ -1,5 +1,5 @@
 const mysql = require("mysql2"); 
-
+const { promisify } = require("util");
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
 }

@@ -29,7 +29,15 @@ const SQL_CREATE_RESERVATION_TABLE = "CREATE TABLE IF NOT EXISTS reservations ("
     + "date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,"
     + "FOREIGN KEY (roomId) REFERENCES rooms(roomId),"
     + "FOREIGN KEY (userId) REFERENCES users(userId)"
-    + ");"
+    + ");" 
+
+const SQL_CREATE_REVIEW_TABLE = "CREATE TABLE IF NOT EXISTS reviews ("
+    + "reviewId varchar(255) NOT NULL PRIMARY KEY,"
+    + "roomId varchar(255) NOT NULL,"
+    + "userId varchar(255) NOT NULL,"
+    + "FOREIGN KEY (roomId) REFERENCES rooms(roomId),"
+    + "FOREIGN KEY (userId) REFERENCES users(userId)"
+    + ");";
 
 const connectDB = mysql.createConnection({
     host: process.env.MYSQL_HOST,
@@ -46,6 +54,7 @@ module.exports.initDb = async () => {
     await promiseConnection(SQL_CREATE_USER_TABLE);
     await promiseConnection(SQL_CREATE_ROOMS_TABLE);
     await promiseConnection(SQL_CREATE_RESERVATION_TABLE);
+    await promiseConnection(SQL_CREATE_REVIEW_TABLE);
 }
 
 connectDB.connect(function (err) {

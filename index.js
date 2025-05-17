@@ -4,7 +4,7 @@ const PORT = 3000;
 const mysql = require("mysql2");
 const {connectDB, initDb} = require('./config/db.js');
 const App = express();
-const session = require("express-session");
+const session = require("express-session"); 
 
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();

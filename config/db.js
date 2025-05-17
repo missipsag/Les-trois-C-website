@@ -17,7 +17,9 @@ const SQL_CREATE_USER_TABLE = "   CREATE TABLE  IF NOT EXISTS users ("
 const SQL_CREATE_ROOMS_TABLE = "CREATE TABLE IF NOT EXISTS rooms ("
     + "roomId varchar(255) NOT NULL PRIMARY KEY,"
     + "roomName varchar(255) ,"
-    + "capacity INTEGER NOT NULL "
+    + "capacity INTEGER NOT NULL, "
+    + "type ENUM ('conference', 'wedding', 'special occasion', 'other'),"
+    + "CHECK (capacity > 0) "
     + " );";
     
 const SQL_CREATE_RESERVATION_TABLE = "CREATE TABLE IF NOT EXISTS reservations ("

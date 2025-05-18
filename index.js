@@ -5,6 +5,9 @@ const mysql = require("mysql2");
 const {connectDB, initDb} = require('./config/db.js');
 const App = express();
 const session = require("express-session"); 
+const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
+const path = require("path");
 
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
@@ -33,7 +36,19 @@ App.use(session(SESSION_CONFIG));
 
 */
 
+// method override 
+App.use(methodOverride('_method'));
+App.use(express.urlencoded({ extended: true }));
+App.use(express.json());
+App.engine("ejs", ejsMate);
+App.set("views", path.join(__dirname, 'views'));
+App.set("view engine", 'ejs');
+
+
+//initialize our Database
 initDb()
+
+
 
 App.listen(PORT, () => {
     console.log(`SERVER RUNNING ON PORT ${PORT}`.blue);

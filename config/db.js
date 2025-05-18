@@ -6,6 +6,11 @@ const SQL_CREATE_RESERVATION_TABLE = require("../models/ReservationModel");
 const SQL_CREATE_REVIEW_TABLE = require("../models/ReviewModel");
 const SQL_CREATE_ROOMS_TABLE = require("../models/RoomModel");
 
+
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+}
+
 const connectDB = mysql.createConnection({
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER, 
@@ -34,3 +39,4 @@ connectDB.connect(function (err) {
 });
 
 module.exports.connectDB;
+module.exports.promiseConnection;

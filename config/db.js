@@ -23,10 +23,10 @@ promiseConnection = promisify(connectDB.query).bind(connectDB);
 
 module.exports.initDb = async () => {
     console.log("INITIALIZING DATABASE...");
-    await promiseConnection(SQL_CREATE_USER_TABLE);
-    await promiseConnection(SQL_CREATE_ROOMS_TABLE);
-    await promiseConnection(SQL_CREATE_RESERVATION_TABLE);
-    await promiseConnection(SQL_CREATE_REVIEW_TABLE);
+    await promiseConnection(SQL_CREATE_USER_TABLE.SQL_CREATE_USER_TABLE);
+    await promiseConnection(SQL_CREATE_ROOMS_TABLE.SQL_CREATE_ROOMS_TABLE);
+    await promiseConnection(SQL_CREATE_RESERVATION_TABLE.SQL_CREATE_RESERVATION_TABLE);
+    await promiseConnection(SQL_CREATE_REVIEW_TABLE.SQL_CREATE_REVIEW_TABLE);
 }
 
 connectDB.connect(function (err) {

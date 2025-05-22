@@ -11,9 +11,9 @@ exports.getUsers = async () => {
     return data;
 } 
 
-exports.getUserById = async (Id) => {
+exports.getUserByEmail = async (email) => {
     const query = ` SELECT * FROM users ` 
-        + `WHERE userdId = ${Id};`
+        + `WHERE email = ${email};`
     
     const foundUser = await promiseConnection(query);
     return foundUser;

@@ -10,7 +10,8 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     cursor: pointer;
-    user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
   }
   .calendar-day.available {
     background-color: #c8f7c5;
@@ -39,9 +40,15 @@
   position: relative;
   height: 100%; /* optional, set height if needed */
 }
-.step{
-    display: none;
-}
-.step.active{
-    display: block;
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  font-weight: bold;
+  text-align: center;
+  color: #149ec0;
+  background: #f8fafc;
+  border-radius: 6px;
 }

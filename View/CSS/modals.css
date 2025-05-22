@@ -16,6 +16,7 @@ dialog{
     to   { transform: translateY(0) scale(1); opacity: 1; }
 }
 
+
 dialog form {
     display: flex;
     flex-direction: column;
@@ -69,6 +70,27 @@ dialog input:focus {
     dialog {
         max-width: 98vw;
     }
+}
+.close-modal {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 10;
+}
+
+.close-modal svg {
+  width: 28px;
+  height: 28px;
+  fill: #888;
+  transition: fill 0.2s;
+}
+
+.close-modal:hover svg {
+  fill: #149ec0;
 }
 
 /*button*/

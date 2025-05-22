@@ -43,11 +43,14 @@ exports.sendAppointementEmailtoUser = async function(userEmail, firstName, lastN
     }
 }
 
+exports.genVerificationCode() = function () {
+    const verificationCode = `${Math.floor(Math.random() * 9000 + 1000)}`;
+    return verificationCode;
+}
 
 exports.sendVerificationCodetoUser = async function (userEmail, firstName, lastName) {
 
     try {
-        const verificationCode = `${Math.floor(Math.random() * 9000 + 1000)}`
         const info = await transporter.sendMail({
             from: process.env.APP_EMAIL,
             to: userEmail,

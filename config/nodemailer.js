@@ -48,7 +48,7 @@ exports.genVerificationCode() = function () {
     return verificationCode;
 }
 
-exports.sendVerificationCodetoUser = async function (userEmail, firstName, lastName) {
+exports.sendVerificationCodetoUser = async function (userEmail,verificationCode, firstName, lastName) {
 
     try {
         const info = await transporter.sendMail({

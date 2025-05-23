@@ -46,7 +46,7 @@
               <p class="section-text">hoisissez parmi nos trois espaces magnifiquement conçus, chacun adapté à différents types d'événements</p>
           </div>
           <div class="salle-grid">
-
+            
               <div class="salle-card"> <!--Marriage-->
                       <img class="salle-img" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="salle marriage">
                   <div class="salle-info">
@@ -57,35 +57,35 @@
                           <span>Capacité: 50-350</span>
                           <span>Capacité: 50-350</span>
                       </div>
-                      <button class="book-btn" data-open-modal="1">Réserver maintenant</button>
+                      <button class="book-btn" data-open-modal data-espace="Mariages">Réserver maintenant</button>
                   </div>
-              </div>
+           </div>
 
               <div class="salle-card"> <!--Conference-->
                   <img  class="salle-img" src="https://images.unsplash.com/photo-1568219656418-15c329312bf1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="espace conference">
                   <div class="salle-info">
-                      <h3>Espace Conference</h3>
+                      <h3>Espace Conférence</h3>
                       <p>Cadre professionnel pour les réunions d'affaires, séminaires et événements d'entreprise</p>
                       <div class="salle-tags">
                           <span>Capacité: 50-150</span>
                           <span>Capacité: 50-150</span>
                           <span>Capacité: 50-150</span>
                       </div>
-                      <button class="book-btn" data-open-modal="2">Réserver maintenant</button>
+                        <button class="book-btn" data-open-modal data-espace="Conférence">Réserver maintenant</button>
                   </div>
               </div>
 
               <div class="salle-card"> <!--Speciale-->
                   <img  class="salle-img" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Espace evenements speciale">
                   <div class="salle-info">
-                      <h3>Espace Evénements Spéciale</h3>
+                      <h3>Espace Evénements Spéciaux</h3>
                       <p>Lieu polyvalent pour les anniversaires, les jubilés et toutes vos célébrations marquantes</p>
                       <div class="salle-tags">
                           <span>Capacité: 50-350</span>
                           <span>Capacité: 50-350</span>
                           <span>Capacité: 50-350</span>
                       </div>
-                      <button class="book-btn" data-open-modal="3">Réserver maintenant</button>
+                        <button class="book-btn" data-open-modal data-espace="événements spéciaux">Réserver maintenant</button>
                   </div>
               </div>
       
@@ -383,267 +383,18 @@
  
 
 <!-- Modals-->
-  <dialog data-modal="1">
-    <button class="close-modal" data-close-modal="1" aria-label="Fermer" style="color:red">X
+  <dialog data-modal>
+    <button class="close-modal" data-close-modal aria-label="Fermer" style="color:red">X
     </button>
     <!-- step 1: email,tel et envoie code-->
     <div>
       <form id="reservation-step1" style="display: block;">
-        <input type="hidden" name="roomType" value="Espace Marriage">
+        <input type="hidden" name="espaceType" id="typeEspace">  <!--
+        TODO:
+         ici t'as juste besoin de name, la valeur est affectée automatiquement par le js
+         -->
         <div class="step active">
-          <h2>Reserver l'espace de marriage</h2>
-          <label for="reserv-email">Email</label>
-          <input type="email" id="reserv-email" name="email" placeholder="Email" required>
-
-          <label for="reserv-phone">Numéro de Tel</label>
-          <input type="tel" id="reserv-phone" name="tel" placeholder="N° Tel" required>
-          <button type="submit" class="animated-button" data-next>
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Envoyer code de confirmation</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-        </div>
-      </form>
-     <!--step 2 : confirmation de code-->
-      <form id="reservation-step2" style="display: none;">
-        <div>
-          <h2>Vérification de votre identité</h2>
-          <p class="step-description">
-            Un code de vérification a été envoyé à votre adresse e-mail.<br>
-            Veuillez saisir ce code ci-dessous pour continuer votre réservation.
-          </p>
-          <label for="confirmationCode" class="input-label">Code de vérification</label>
-          <input type="text" id="confirmationCode" name="otp" class="input-field" placeholder="Entrez le code reçu" maxlength="4" required autocomplete="one-time-code">
-          <button type="submit" class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Verifier le code</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-          <p class="resend-text">
-            Vous n'avez pas reçu le code ? <a style="color: #16a34a;" href="#" onclick="resendCode(); return false;">Renvoyer le code</a>
-          </p>
-        </div>
-      </form>
-        <!-- Step 3-1:info personnel -->
-      <form id="reservation-step3" data-multi-step style="display: none;">
-        <div class="step" data-step="1">
-          <h3>Informations personnels</h3>
-          <label for="lastName">Nom</label>
-          <input type="text" id="lastName" placeholder="Nom" required>
-
-          <label for="firstName">Prénom</label>
-          <input type="text" id="firstName" placeholder="Prénom" required>
-
-          <label for="idCard">N° CNI</label>
-          <input type="text" id="idCard" placeholder="N° CNI" required>
-          <button type="button" onclick="generateCalendar()" data-next class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-              <span class="text">Suivant</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Step 3-2: calendrier -->
-        <div class="step" data-step="2">
-          <h3>Selectionner une Date</h3>
-          <div id="calendar"></div>
-          <button type="button" data-previous class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Retour</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-          <button type="button" data-next class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Confirmer</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Step 3-3:Confirmation -->
-        <div class="step" data-step="3">
-          <div style="text-align: center; padding: 30px;">
-            <svg width="100" height="100" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="#4caf50" stroke-width="2"/>
-              <path d="M8 12.5L11 15.5L16 9.5" stroke="#4caf50" stroke-width="2" fill="none"/>
-            </svg>
-            <h2 style="margin-top: 20px;">Réservation effectuée avec succès !</h2>
-            <p>Veuillez se présenter dans un délai de 5 jours vers le lieu</p>
-            <button type="button" id="final-confirm-btn" class="animated-button" style="margin-top:20px;">
-              <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Confirmer</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </dialog>
-
-  <dialog data-modal="2">
-    <button class="close-modal" data-close-modal="2" aria-label="Fermer" style="color:red">X
-    </button>
-    <!-- step 1: email,tel et envoie code-->
-    <div>
-      <form id="reservation-step1" style="display: block;">
-        <input type="hidden" name="roomType" value="Espace Conference">
-        <div class="step active">
-          <h2>Reserver l'espace de conferences</h2>
-          <label for="reserv-email">Email</label>
-          <input type="email" id="reserv-email" name="email" placeholder="Email" required>
-
-          <label for="reserv-phone">Numéro de Tel</label>
-          <input type="tel" id="reserv-phone" name="tel" placeholder="N° Tel" required>
-          <button type="submit" class="animated-button" data-next>
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Envoyer code de confirmation</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-        </div>
-      </form>
-     <!--step 2 : confirmation de code-->
-      <form id="reservation-step2" style="display: none;">
-        <div>
-          <h2>Vérification de votre identité</h2>
-          <p class="step-description">
-            Un code de vérification a été envoyé à votre adresse e-mail.<br>
-            Veuillez saisir ce code ci-dessous pour continuer votre réservation.
-          </p>
-          <label for="confirmationCode" class="input-label">Code de vérification</label>
-          <input type="text" id="confirmationCode" name="otp" class="input-field" placeholder="Entrez le code reçu" maxlength="4" required autocomplete="one-time-code">
-          <button type="submit" class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Verifier le code</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-          <p class="resend-text">
-            Vous n'avez pas reçu le code ? <a style="color: #16a34a;" href="#" onclick="resendCode(); return false;">Renvoyer le code</a>
-          </p>
-        </div>
-      </form>
-        <!-- Step 3-1:info personnel -->
-      <form id="reservation-step3" data-multi-step style="display: none;">
-        <div class="step" data-step="1">
-          <h3>Informations personnels</h3>
-          <label for="lastName">Nom</label>
-          <input type="text" id="lastName" placeholder="Nom" required>
-
-          <label for="firstName">Prénom</label>
-          <input type="text" id="firstName" placeholder="Prénom" required>
-
-          <label for="idCard">N° CNI</label>
-          <input type="text" id="idCard" placeholder="N° CNI" required>
-          <button type="button" onclick="generateCalendar()" data-next class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-              <span class="text">Suivant</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Step 3-2: calendrier -->
-        <div class="step" data-step="2">
-          <h3>Selectionner une Date</h3>
-          <div id="calendar"></div>
-          <button type="button" data-previous class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Retour</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-          <button type="button" data-next class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Confirmer</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Step 3-3:Confirmation -->
-        <div class="step" data-step="3">
-          <div style="text-align: center; padding: 30px;">
-            <svg width="100" height="100" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="#4caf50" stroke-width="2"/>
-              <path d="M8 12.5L11 15.5L16 9.5" stroke="#4caf50" stroke-width="2" fill="none"/>
-            </svg>
-            <h2 style="margin-top: 20px;">Réservation effectuée avec succès !</h2>
-            <p>Veuillez se présenter dans un délai de 5 jours vers le lieu</p>
-            <button type="button" id="final-confirm-btn" class="animated-button" style="margin-top:20px;">
-              <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Confirmer</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </dialog>
-
-  <dialog data-modal="3">
-    <button class="close-modal" data-close-modal="3" aria-label="Fermer" style="color:red">X
-    </button>
-    <!-- step 1: email,tel et envoie code-->
-    <div>
-      <form id="reservation-step1" style="display: block;">
-        <input type="hidden" name="roomType" value="Espace Speciales">
-        <div class="step active">
-          <h2>Reserver l'espace d'événements spéciales</h2>
+            <h2>Réserver l'espace de <span id="nomES">mariage</span></h2>
           <label for="reserv-email">Email</label>
           <input type="email" id="reserv-email" name="email" placeholder="Email" required>
 

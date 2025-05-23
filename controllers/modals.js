@@ -1,6 +1,19 @@
 const openButtons = document.querySelectorAll("[data-open-modal]");
 const closeButtons = document.querySelectorAll("[data-close-modal]");
 document.addEventListener("DOMContentLoaded", function() {
+    //prendre les variables
+    const titre = document.getElementById("nomES");
+    const type = document.getElementById("typeEspace");
+    const buttons = document.querySelectorAll(".book-btn")
+
+    buttons.forEach(Btn =>{
+        Btn.addEventListener("click", function() {
+            const espace = Btn.dataset.espace;
+            titre.textContent = espace;
+            type.value = espace;
+
+        })
+    })
     // Ouvrir la modal
     document.querySelectorAll("[data-open-modal]").forEach(button => {
         button.addEventListener("click", () => {

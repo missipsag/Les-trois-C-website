@@ -129,7 +129,9 @@ section{
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
+
 .salle-img {
     height: 16rem;
     width: 100%;
@@ -139,6 +141,7 @@ section{
 .salle-card:hover .salle-img:hover{
 transform: scale(1.1);
 }
+
 .salle-info{
     padding: 1.5rem;
 }

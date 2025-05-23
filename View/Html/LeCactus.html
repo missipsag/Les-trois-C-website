@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="../CSS/Accueil.css">
     <link rel="stylesheet" href="../CSS/modals.css">
     <link rel="stylesheet" href="../CSS/form.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script defer src="../../controllers/modals.js"></script>
     <script defer src="../../controllers/form.js"></script>
+    <script defer src="../../controllers/emailVerif.js"></script>
     <title>Le Cactus</title>
 </head>
 <body>
-    <!--barre de nav-->
+<!--barre de nav-->
   <nav>
         <div class="contenaire"> <!--div contenaire-->
             <div class="nav-barre">
@@ -28,268 +28,264 @@
         </div>
   </nav>
 
-     <!--espace de la photo d'accueil-->
-    <section id="presentation">
-        <div class="center">
-            <h1>Le Cactus</h1>
-            <p>Où chaque occasion fleurit en une expérience inoubliable</p>
-            <a href="#rooms" class="btn-explore">Explore Our Rooms </a> <!--button pour explorer les salles-->
-        </div>
-    </section>
+<!--espace de la photo d'accueil-->
+  <section id="presentation">
+          <div class="center">
+              <h1>Le Cactus</h1>
+              <p>Où chaque occasion fleurit en une expérience inoubliable</p>
+              <a href="#rooms" class="btn-explore">Explore Our Rooms </a> <!--button pour explorer les salles-->
+          </div>
+  </section>
    
 <!--salles-->
-<section id="salles">
-    <div class="contenaire">
-        <div class="contenaire-titre">
-            <h2 class="section-titre">Nos Espaces</h2>
-            <div class="lignediviseur"></div>
-            <p class="section-text">hoisissez parmi nos trois espaces magnifiquement conçus, chacun adapté à différents types d'événements</p>
-        </div>
-        <div class="salle-grid">
+  <section id="salles">
+      <div class="contenaire">
+          <div class="contenaire-titre">
+              <h2 class="section-titre">Nos Espaces</h2>
+              <div class="lignediviseur"></div>
+              <p class="section-text">hoisissez parmi nos trois espaces magnifiquement conçus, chacun adapté à différents types d'événements</p>
+          </div>
+          <div class="salle-grid">
 
-            <div class="salle-card"> <!--Marriage-->
-                    <img class="salle-img" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="salle marriage">
-                <div class="salle-info">
-                    <h3>Espace Marriage</h3>
-                    <p>Un espace élégant parfait pour les cérémonies, les réceptions et les célébrations romantiques</p>
-                    <div class="salle-tags">
-                        <span>Capacité: 50-350</span>
-                        <span>Capacité: 50-350</span>
-                        <span>Capacité: 50-350</span>
-                    </div>
-                    <button class="book-btn" data-open-modal="1">Réserver maintenant</button>
-                </div>
-            </div>
+              <div class="salle-card"> <!--Marriage-->
+                      <img class="salle-img" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="salle marriage">
+                  <div class="salle-info">
+                      <h3>Espace Marriage</h3>
+                      <p>Un espace élégant parfait pour les cérémonies, les réceptions et les célébrations romantiques</p>
+                      <div class="salle-tags">
+                          <span>Capacité: 50-350</span>
+                          <span>Capacité: 50-350</span>
+                          <span>Capacité: 50-350</span>
+                      </div>
+                      <button class="book-btn" data-open-modal="1">Réserver maintenant</button>
+                  </div>
+              </div>
 
-            <div class="salle-card"> <!--Conference-->
-                <img  class="salle-img" src="https://images.unsplash.com/photo-1568219656418-15c329312bf1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="espace conference">
-                <div class="salle-info">
-                    <h3>Espace Conference</h3>
-                    <p>Cadre professionnel pour les réunions d'affaires, séminaires et événements d'entreprise</p>
-                    <div class="salle-tags">
-                        <span>Capacité: 50-150</span>
-                        <span>Capacité: 50-150</span>
-                        <span>Capacité: 50-150</span>
-                    </div>
-                    <button class="book-btn" data-open-modal="2">Réserver maintenant</button>
-                </div>
-            </div>
+              <div class="salle-card"> <!--Conference-->
+                  <img  class="salle-img" src="https://images.unsplash.com/photo-1568219656418-15c329312bf1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="espace conference">
+                  <div class="salle-info">
+                      <h3>Espace Conference</h3>
+                      <p>Cadre professionnel pour les réunions d'affaires, séminaires et événements d'entreprise</p>
+                      <div class="salle-tags">
+                          <span>Capacité: 50-150</span>
+                          <span>Capacité: 50-150</span>
+                          <span>Capacité: 50-150</span>
+                      </div>
+                      <button class="book-btn" data-open-modal="2">Réserver maintenant</button>
+                  </div>
+              </div>
 
-            <div class="salle-card"> <!--Speciale-->
-                <img  class="salle-img" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Espace evenements speciale">
-                <div class="salle-info">
-                    <h3>Espace Evénements Spéciale</h3>
-                    <p>Lieu polyvalent pour les anniversaires, les jubilés et toutes vos célébrations marquantes</p>
-                    <div class="salle-tags">
-                        <span>Capacité: 50-350</span>
-                        <span>Capacité: 50-350</span>
-                        <span>Capacité: 50-350</span>
-                    </div>
-                    <button class="book-btn" data-open-modal="3">Réserver maintenant</button>
-                </div>
-            </div>
-    
-        </div>
-        <div class="annule-modif">
-          <button class="annuler">Annuler</button>
-          <button class="modifier">Modifier</button>
-        </div>
-    </div>
-</section>
+              <div class="salle-card"> <!--Speciale-->
+                  <img  class="salle-img" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Espace evenements speciale">
+                  <div class="salle-info">
+                      <h3>Espace Evénements Spéciale</h3>
+                      <p>Lieu polyvalent pour les anniversaires, les jubilés et toutes vos célébrations marquantes</p>
+                      <div class="salle-tags">
+                          <span>Capacité: 50-350</span>
+                          <span>Capacité: 50-350</span>
+                          <span>Capacité: 50-350</span>
+                      </div>
+                      <button class="book-btn" data-open-modal="3">Réserver maintenant</button>
+                  </div>
+              </div>
+      
+          </div>
+      </div>
+  </section>
 
 <!--Gallery-->
-<section id="gallery">
-    <div class="contenaire">
-        <div class="contenaire-titre">
-            <h2 class="section-titre">Gallery</h2>
-            <div class="lignediviseur"></div>
-            <p class="section-text">Découvrez quelques-uns de nos événements magnifiquement organisés</p>
-        </div>
+  <section id="gallery">
+      <div class="contenaire">
+          <div class="contenaire-titre">
+              <h2 class="section-titre">Gallery</h2>
+              <div class="lignediviseur"></div>
+              <p class="section-text">Découvrez quelques-uns de nos événements magnifiquement organisés</p>
+          </div>
 
-        <div class="gallery-grid">
+          <div class="gallery-grid">
 
-            <div class="stack"> <!--image-->
-                <div class="card">
-                  <div class="gallery-image">
-                     <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+              <div class="stack"> <!--image-->
+                  <div class="card">
+                    <div class="gallery-image">
+                      <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+                    </div>
                   </div>
                 </div>
-              </div>
-            <div class="stack"> <!--image-->
-                <div class="card">
-                  <div class="gallery-image">
-                     <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+              <div class="stack"> <!--image-->
+                  <div class="card">
+                    <div class="gallery-image">
+                      <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+                    </div>
                   </div>
                 </div>
-              </div>
 
-            <div class="stack"> <!--image-->
-                <div class="card">
-                  <div class="gallery-image">
-                     <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+              <div class="stack"> <!--image-->
+                  <div class="card">
+                    <div class="gallery-image">
+                      <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+                    </div>
                   </div>
                 </div>
-              </div>
 
-            <div class="stack"> <!--image-->
-                <div class="card">
-                  <div class="gallery-image">
-                     <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+              <div class="stack"> <!--image-->
+                  <div class="card">
+                    <div class="gallery-image">
+                      <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+                    </div>
                   </div>
                 </div>
-              </div>
 
-            <div class="stack"> <!--image-->
-                <div class="card">
-                  <div class="gallery-image">
-                     <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+              <div class="stack"> <!--image-->
+                  <div class="card">
+                    <div class="gallery-image">
+                      <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+                    </div>
                   </div>
                 </div>
-              </div>
 
-            <div class="stack"> <!--image-->
-                <div class="card">
-                  <div class="gallery-image">
-                     <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+              <div class="stack"> <!--image-->
+                  <div class="card">
+                    <div class="gallery-image">
+                      <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="evenement 1">
+                    </div>
                   </div>
                 </div>
-              </div>
-            
-        </div>
-    </div>
-</section>
+              
+          </div>
+      </div>
+  </section>
 
 <!--Avis-->
-<section id="avis">
-    <div class="contenaire">
-        <div class="contenaire-titre">
-            <h2 class="section-titre">What Our Clients Say</h2>
-            <div class="lignediviseur"></div>
-        </div>
-        <div class="avis-grid">
+  <section id="avis">
+      <div class="contenaire">
+          <div class="contenaire-titre">
+              <h2 class="section-titre">What Our Clients Say</h2>
+              <div class="lignediviseur"></div>
+          </div>
+          <div class="avis-grid">
 
-              <div class="avis-card"><!--une avis-->
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="avis-text">
-                    "Le Cactus made our wedding day absolutely magical. The staff went above and beyond to ensure everything was perfect."
-                    </p>
-                    <div class="client-img">
-                        <img class="cl-img" src="https://randomuser.me/api/portraits/women/43.jpg " alt="Sarah J." class="w-12 h-12 rounded-full mr-4 object-cover">
-                        <div>
-                            <h4 class="client-nom">Sarah J.</h4>
-                            <p class="client-type">Wedding Client</p>
-                        </div>
-                    </div>
-              </div>
-                
-              <div class="avis-card"><!--une avis-->
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="avis-text">
-                    "Le Cactus made our wedding day absolutely magical. The staff went above and beyond to ensure everything was perfect."
-                    </p>
-                    <div class="client-img">
-                        <img class="cl-img" src="https://randomuser.me/api/portraits/women/43.jpg " alt="Sarah J." class="w-12 h-12 rounded-full mr-4 object-cover">
-                        <div>
-                            <h4 class="client-nom">Sarah J.</h4>
-                            <p class="client-type">Wedding Client</p>
-                        </div>
-                    </div>
-              </div>
-
-              <div class="avis-card"><!--une avis-->
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="avis-text">
-                    "Le Cactus made our wedding day absolutely magical. The staff went above and beyond to ensure everything was perfect."
-                    </p>
-                    <div class="client-img">
-                        <img class="cl-img" src="https://randomuser.me/api/portraits/women/43.jpg " alt="Sarah J." class="w-12 h-12 rounded-full mr-4 object-cover">
-                        <div>
-                            <h4 class="client-nom">Sarah J.</h4>
-                            <p class="client-type">Wedding Client</p>
-                        </div>
-                    </div>
-              </div>
-
-               <!-- ajouter review -->
-                    <div class="avis-card">
-                        <form action="/submit-review" method="POST">
-                            <div class="rating">
-                                <input type="radio" id="star5" name="rate" value="5" />
-                                <label title="Excellent!" for="star5">
-                                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
-                                    <path
-                                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                                    ></path>
-                                  </svg>
-                                </label>
-                                <input value="4" name="rate" id="star4" type="radio" />
-                                <label title="Great!" for="star4">
-                                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
-                                    <path
-                                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                                    ></path>
-                                  </svg>
-                                </label>
-                                <input value="3" name="rate" id="star3" type="radio" />
-                                <label title="Good" for="star3">
-                                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
-                                    <path
-                                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                                    ></path>
-                                  </svg>
-                                </label>
-                                <input value="2" name="rate" id="star2" type="radio" />
-                                <label title="Okay" for="star2">
-                                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
-                                    <path
-                                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                                    ></path>
-                                  </svg>
-                                </label>
-                                <input value="1" name="rate" id="star1" type="radio" />
-                                <label title="Bad" for="star1">
-                                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
-                                    <path
-                                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
-                                    ></path>
-                                  </svg>
-                                </label>
-                              </div>
-                              
-                
-                            <input class="avisform" type="text" name="firstname" placeholder="Prénom" required>
-                            <input class="avisform" type="text" name="lastName" placeholder="Nom" required>
-                            <input class="avisfrom" type="email" name="email" placeholder="Email" required>
-                            <textarea name="review" rows="4" placeholder="Votre avis..." required></textarea>
-                
-                            <button type="submit">Envoyer avis</button>
-                        </form>
-                    </div>
+                <div class="avis-card"><!--une avis-->
+                      <div class="stars">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </div>
+                      <p class="avis-text">
+                      "Le Cactus made our wedding day absolutely magical. The staff went above and beyond to ensure everything was perfect."
+                      </p>
+                      <div class="client-img">
+                          <img class="cl-img" src="https://randomuser.me/api/portraits/women/43.jpg " alt="Sarah J." class="w-12 h-12 rounded-full mr-4 object-cover">
+                          <div>
+                              <h4 class="client-nom">Sarah J.</h4>
+                              <p class="client-type">Wedding Client</p>
+                          </div>
+                      </div>
                 </div>
-        </div>
-        
-    </div>
-</section>
+                  
+                <div class="avis-card"><!--une avis-->
+                      <div class="stars">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </div>
+                      <p class="avis-text">
+                      "Le Cactus made our wedding day absolutely magical. The staff went above and beyond to ensure everything was perfect."
+                      </p>
+                      <div class="client-img">
+                          <img class="cl-img" src="https://randomuser.me/api/portraits/women/43.jpg " alt="Sarah J." class="w-12 h-12 rounded-full mr-4 object-cover">
+                          <div>
+                              <h4 class="client-nom">Sarah J.</h4>
+                              <p class="client-type">Wedding Client</p>
+                          </div>
+                      </div>
+                </div>
 
-  <!-- Contact Section -->
+                <div class="avis-card"><!--une avis-->
+                      <div class="stars">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </div>
+                      <p class="avis-text">
+                      "Le Cactus made our wedding day absolutely magical. The staff went above and beyond to ensure everything was perfect."
+                      </p>
+                      <div class="client-img">
+                          <img class="cl-img" src="https://randomuser.me/api/portraits/women/43.jpg " alt="Sarah J." class="w-12 h-12 rounded-full mr-4 object-cover">
+                          <div>
+                              <h4 class="client-nom">Sarah J.</h4>
+                              <p class="client-type">Wedding Client</p>
+                          </div>
+                      </div>
+                </div>
+
+                <!-- ajouter review -->
+                      <div class="avis-card">
+                          <form action="/submit-review" method="POST">
+                              <div class="rating">
+                                  <input type="radio" id="star5" name="rate" value="5" />
+                                  <label title="Excellent!" for="star5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                                      <path
+                                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                                      ></path>
+                                    </svg>
+                                  </label>
+                                  <input value="4" name="rate" id="star4" type="radio" />
+                                  <label title="Great!" for="star4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                                      <path
+                                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                                      ></path>
+                                    </svg>
+                                  </label>
+                                  <input value="3" name="rate" id="star3" type="radio" />
+                                  <label title="Good" for="star3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                                      <path
+                                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                                      ></path>
+                                    </svg>
+                                  </label>
+                                  <input value="2" name="rate" id="star2" type="radio" />
+                                  <label title="Okay" for="star2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                                      <path
+                                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                                      ></path>
+                                    </svg>
+                                  </label>
+                                  <input value="1" name="rate" id="star1" type="radio" />
+                                  <label title="Bad" for="star1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                                      <path
+                                        d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"
+                                      ></path>
+                                    </svg>
+                                  </label>
+                                </div>
+                                
+                  
+                              <input class="avisform" type="text" name="firstname" placeholder="Prénom" required>
+                              <input class="avisform" type="text" name="lastName" placeholder="Nom" required>
+                              <input class="avisfrom" type="email" name="email" placeholder="Email" required>
+                              <textarea name="review" rows="4" placeholder="Votre avis..." required></textarea>
+                  
+                              <button class="envoyer-avis" type="submit">Envoyer avis</button>
+                          </form>
+                      </div>
+                  </div>
+          </div>
+          
+      </div>
+  </section>
+
+<!-- Contact Section -->
   <section class="contact-section">
     <div class="contenaire">
       <div class="contenaire-titre">
@@ -388,46 +384,46 @@
 
 <!-- Modals-->
   <dialog data-modal="1">
-    <button class="close-modal" data-close-modal="1" aria-label="Fermer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M19.4 4.6L12 12l7.4 7.4c.8.8.8 2 0 2.8-.8.8-2 .8-2.8 0L12 14.6l-7.4 7.4c-.8.8-2 .8-2.8 0-.8-.8-.8-2 0-2.8L9.4 12 .6 4.6c-.8-.8-.8-2 0-2.8s2-.8 2.8 0L12 9.4l7.4-7.4c.8-.8 2-.8 2.8 0 .9.9.9 2 .1 2.9z"></path>
-      </svg>
-      </button>
+    <button class="close-modal" data-close-modal="1" aria-label="Fermer" style="color:red">X
+    </button>
+    <!-- step 1: email,tel et envoie code-->
     <div>
-      <form id="stepform" data-multi-step onsubmit="return false" action="/reservation" method="POST">
+      <form id="reservation-step1" style="display: block;">
         <input type="hidden" name="roomType" value="Espace Marriage">
-        <div class="step active" data-step="1">
+        <div class="step active">
           <h2>Reserver l'espace de marriage</h2>
           <label for="reserv-email">Email</label>
-          <input type="email" id="reserv-email" placeholder="Email" required>
+          <input type="email" id="reserv-email" name="email" placeholder="Email" required>
 
           <label for="reserv-phone">Numéro de Tel</label>
-          <input type="tel" id="reserv-phone" placeholder="N° Tel" required>
-          <button type="button" class="animated-button" data-next>
-             <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-             </svg>
-             <span class="text" onclick="sendConfirmationCode()">Envoyer code de confirmation</span>
-             <span class="circle"></span>
-             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-             </svg>
+          <input type="tel" id="reserv-phone" name="tel" placeholder="N° Tel" required>
+          <button type="submit" class="animated-button" data-next>
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+            <span class="text">Envoyer code de confirmation</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
           </button>
         </div>
-
-        <div class="step" data-step="2">
+      </form>
+     <!--step 2 : confirmation de code-->
+      <form id="reservation-step2" style="display: none;">
+        <div>
           <h2>Vérification de votre identité</h2>
           <p class="step-description">
             Un code de vérification a été envoyé à votre adresse e-mail.<br>
             Veuillez saisir ce code ci-dessous pour continuer votre réservation.
           </p>
           <label for="confirmationCode" class="input-label">Code de vérification</label>
-          <input type="text" id="confirmationCode" class="input-field" placeholder="Entrez le code reçu" maxlength="6" required autocomplete="one-time-code">
-          <button type="button" onclick="verifyCode()" class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <input type="text" id="confirmationCode" name="otp" class="input-field" placeholder="Entrez le code reçu" maxlength="4" required autocomplete="one-time-code">
+          <button type="submit" class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-            <span class="text">Vérifier le code</span>
+            <span class="text">Verifier le code</span>
             <span class="circle"></span>
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
@@ -437,36 +433,37 @@
             Vous n'avez pas reçu le code ? <a style="color: #16a34a;" href="#" onclick="resendCode(); return false;">Renvoyer le code</a>
           </p>
         </div>
+      </form>
+        <!-- Step 3-1:info personnel -->
+      <form id="reservation-step3" data-multi-step style="display: none;">
+        <div class="step" data-step="1">
+          <h3>Informations personnels</h3>
+          <label for="lastName">Nom</label>
+          <input type="text" id="lastName" placeholder="Nom" required>
 
-        <!-- Step 3:info personnel -->
-        <div class="step" data-step="3">
-         <h3>Informations personnels</h3>
-         <label for="lastName">Nom</label>
-         <input type="text" id="lastName" placeholder="Nom" required>
-         
-         <label for="firstName">Prénom</label>
-         <input type="text" id="firstName" placeholder="Prénom" required>
-         
-         <label for="idCard">N° CNI</label>
-         <input type="text" id="idCard" placeholder="N° CNI" required>
-           <button  type="button" onclick="generateCalendar()" data-next class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <label for="firstName">Prénom</label>
+          <input type="text" id="firstName" placeholder="Prénom" required>
+
+          <label for="idCard">N° CNI</label>
+          <input type="text" id="idCard" placeholder="N° CNI" required>
+          <button type="button" onclick="generateCalendar()" data-next class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-            <span class="text">Suivant</span>
+              <span class="text">Suivant</span>
             <span class="circle"></span>
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-           </button>
-       </div>
+          </button>
+        </div>
 
-        <!-- Step 4: calendrier -->
-       <div class="step" data-step="4">
+        <!-- Step 3-2: calendrier -->
+        <div class="step" data-step="2">
           <h3>Selectionner une Date</h3>
           <div id="calendar"></div>
-          <button  type="button"data-previous class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <button type="button" data-previous class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
             <span class="text">Retour</span>
@@ -475,8 +472,8 @@
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
           </button>
-           <button  type="button"  data-next class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <button type="button" data-next class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
             <span class="text">Confirmer</span>
@@ -484,11 +481,11 @@
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-           </button>
-       </div>
+          </button>
+        </div>
 
-        <!-- Step 5:Confirmation -->
-        <div class="step" data-step="5">
+        <!-- Step 3-3:Confirmation -->
+        <div class="step" data-step="3">
           <div style="text-align: center; padding: 30px;">
             <svg width="100" height="100" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" stroke="#4caf50" stroke-width="2"/>
@@ -496,53 +493,63 @@
             </svg>
             <h2 style="margin-top: 20px;">Réservation effectuée avec succès !</h2>
             <p>Veuillez se présenter dans un délai de 5 jours vers le lieu</p>
-            <button type="button" id="final-confirm-btn" class="animated-button" style="margin-top:20px;">Confirmer</button>
+            <button type="button" id="final-confirm-btn" class="animated-button" style="margin-top:20px;">
+              <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+            <span class="text">Confirmer</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+            </button>
           </div>
         </div>
       </form>
     </div>
   </dialog>
 
-  <dialog data-modal="2"> <!-- pour espace conference-->
-    <button class="close-modal" data-close-modal="2" aria-label="Fermer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M19.4 4.6L12 12l7.4 7.4c.8.8.8 2 0 2.8-.8.8-2 .8-2.8 0L12 14.6l-7.4 7.4c-.8.8-2 .8-2.8 0-.8-.8-.8-2 0-2.8L9.4 12 .6 4.6c-.8-.8-.8-2 0-2.8s2-.8 2.8 0L12 9.4l7.4-7.4c.8-.8 2-.8 2.8 0 .9.9.9 2 .1 2.9z"></path>
-      </svg>
-      </button>
+  <dialog data-modal="2">
+    <button class="close-modal" data-close-modal="2" aria-label="Fermer" style="color:red">X
+    </button>
+    <!-- step 1: email,tel et envoie code-->
     <div>
-      <form id="stepform" data-multi-step onsubmit="return false" action="/reservation" method="POST">
+      <form id="reservation-step1" style="display: block;">
         <input type="hidden" name="roomType" value="Espace Conference">
-        <div class="step active" data-step="1">
-          <h2>Reserver l'espace de Conference</h2>
+        <div class="step active">
+          <h2>Reserver l'espace de conferences</h2>
           <label for="reserv-email">Email</label>
-          <input type="email" id="reserv-email" placeholder="Email" required>
+          <input type="email" id="reserv-email" name="email" placeholder="Email" required>
 
           <label for="reserv-phone">Numéro de Tel</label>
-          <input type="tel" id="reserv-phone" placeholder="N° Tel" required>
-          <button type="button" class="animated-button" data-next>
-             <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-             </svg>
-             <span class="text" onclick="sendConfirmationCode()">Envoyer code de confirmation</span>
-             <span class="circle"></span>
-             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-             </svg>
+          <input type="tel" id="reserv-phone" name="tel" placeholder="N° Tel" required>
+          <button type="submit" class="animated-button" data-next>
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+            <span class="text">Envoyer code de confirmation</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
           </button>
         </div>
-        <div class="step" data-step="2">
+      </form>
+     <!--step 2 : confirmation de code-->
+      <form id="reservation-step2" style="display: none;">
+        <div>
           <h2>Vérification de votre identité</h2>
           <p class="step-description">
             Un code de vérification a été envoyé à votre adresse e-mail.<br>
             Veuillez saisir ce code ci-dessous pour continuer votre réservation.
           </p>
           <label for="confirmationCode" class="input-label">Code de vérification</label>
-          <input type="text" id="confirmationCode" class="input-field" placeholder="Entrez le code reçu" maxlength="6" required autocomplete="one-time-code">
-          <button type="button" onclick="verifyCode()" class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <input type="text" id="confirmationCode" name="otp" class="input-field" placeholder="Entrez le code reçu" maxlength="4" required autocomplete="one-time-code">
+          <button type="submit" class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-            <span class="text">Vérifier le code</span>
+            <span class="text">Verifier le code</span>
             <span class="circle"></span>
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
@@ -552,39 +559,37 @@
             Vous n'avez pas reçu le code ? <a style="color: #16a34a;" href="#" onclick="resendCode(); return false;">Renvoyer le code</a>
           </p>
         </div>
+      </form>
+        <!-- Step 3-1:info personnel -->
+      <form id="reservation-step3" data-multi-step style="display: none;">
+        <div class="step" data-step="1">
+          <h3>Informations personnels</h3>
+          <label for="lastName">Nom</label>
+          <input type="text" id="lastName" placeholder="Nom" required>
 
-        <!-- Step 3:info personnel -->
-        <div class="step" data-step="3">
-         <h3>Informations personnels</h3>
-         <label for="lastName">Nom</label>
-         <input type="text" id="lastName" placeholder="Nom" required>
-         
-         <label for="firstName">Prénom</label>
-         <input type="text" id="firstName" placeholder="Prénom" required>
-         
-         <label for="idCard">N° CNI</label>
-         <input type="text" id="idCard" placeholder="N° CNI" required>
-         <button  type="button" data-previous class="animated-button">
-          <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-           <button  type="button" onclick="generateCalendar()" data-next class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <label for="firstName">Prénom</label>
+          <input type="text" id="firstName" placeholder="Prénom" required>
+
+          <label for="idCard">N° CNI</label>
+          <input type="text" id="idCard" placeholder="N° CNI" required>
+          <button type="button" onclick="generateCalendar()" data-next class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-            <span class="text">Suivant</span>
+              <span class="text">Suivant</span>
             <span class="circle"></span>
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-           </button>
-       </div>
+          </button>
+        </div>
 
-        <!-- Step 4: calendrier -->
-       <div class="step" data-step="4">
+        <!-- Step 3-2: calendrier -->
+        <div class="step" data-step="2">
           <h3>Selectionner une Date</h3>
           <div id="calendar"></div>
-          <button  type="button"data-previous class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <button type="button" data-previous class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
             <span class="text">Retour</span>
@@ -593,8 +598,8 @@
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
           </button>
-           <button  type="button"  data-next class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <button type="button" data-next class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
             <span class="text">Confirmer</span>
@@ -602,11 +607,11 @@
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-           </button>
-       </div>
+          </button>
+        </div>
 
-        <!-- Step 5:Confirmation -->
-        <div class="step" data-step="5">
+        <!-- Step 3-3:Confirmation -->
+        <div class="step" data-step="3">
           <div style="text-align: center; padding: 30px;">
             <svg width="100" height="100" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" stroke="#4caf50" stroke-width="2"/>
@@ -614,7 +619,16 @@
             </svg>
             <h2 style="margin-top: 20px;">Réservation effectuée avec succès !</h2>
             <p>Veuillez se présenter dans un délai de 5 jours vers le lieu</p>
-            <button type="button" id="final-confirm-btn" class="animated-button" style="margin-top:20px;">Confirmer</button>
+            <button type="button" id="final-confirm-btn" class="animated-button" style="margin-top:20px;">
+              <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+            <span class="text">Confirmer</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+            </button>
           </div>
         </div>
       </form>
@@ -622,46 +636,46 @@
   </dialog>
 
   <dialog data-modal="3">
-    <button class="close-modal" data-close-modal="3" aria-label="Fermer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M19.4 4.6L12 12l7.4 7.4c.8.8.8 2 0 2.8-.8.8-2 .8-2.8 0L12 14.6l-7.4 7.4c-.8.8-2 .8-2.8 0-.8-.8-.8-2 0-2.8L9.4 12 .6 4.6c-.8-.8-.8-2 0-2.8s2-.8 2.8 0L12 9.4l7.4-7.4c.8-.8 2-.8 2.8 0 .9.9.9 2 .1 2.9z"></path>
-      </svg>
-      </button>
+    <button class="close-modal" data-close-modal="3" aria-label="Fermer" style="color:red">X
+    </button>
+    <!-- step 1: email,tel et envoie code-->
     <div>
-      <form id="stepform" data-multi-step onsubmit="return false" action="/reservation" method="POST">
-        <input type="hidden" name="roomType" value="Espace EvenementSpeciales">
-        <div class="step active" data-step="1">
-          <h2>Reserver l'espace d'évenements speciales</h2>
+      <form id="reservation-step1" style="display: block;">
+        <input type="hidden" name="roomType" value="Espace Speciales">
+        <div class="step active">
+          <h2>Reserver l'espace d'événements spéciales</h2>
           <label for="reserv-email">Email</label>
-          <input type="email" id="reserv-email" placeholder="Email" required>
+          <input type="email" id="reserv-email" name="email" placeholder="Email" required>
 
           <label for="reserv-phone">Numéro de Tel</label>
-          <input type="tel" id="reserv-phone" placeholder="N° Tel" required>
-          <button type="button" class="animated-button" data-next>
-             <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-             </svg>
-             <span class="text" onclick="sendConfirmationCode()">Envoyer code de confirmation</span>
-             <span class="circle"></span>
-             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-             </svg>
+          <input type="tel" id="reserv-phone" name="tel" placeholder="N° Tel" required>
+          <button type="submit" class="animated-button" data-next>
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+            <span class="text">Envoyer code de confirmation</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
           </button>
         </div>
-
-        <div class="step" data-step="2">
+      </form>
+     <!--step 2 : confirmation de code-->
+      <form id="reservation-step2" style="display: none;">
+        <div>
           <h2>Vérification de votre identité</h2>
           <p class="step-description">
             Un code de vérification a été envoyé à votre adresse e-mail.<br>
             Veuillez saisir ce code ci-dessous pour continuer votre réservation.
           </p>
           <label for="confirmationCode" class="input-label">Code de vérification</label>
-          <input type="text" id="confirmationCode" class="input-field" placeholder="Entrez le code reçu" maxlength="6" required autocomplete="one-time-code">
-          <button type="button" onclick="verifyCode()" class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <input type="text" id="confirmationCode" name="otp" class="input-field" placeholder="Entrez le code reçu" maxlength="4" required autocomplete="one-time-code">
+          <button type="submit" class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-            <span class="text">Vérifier le code</span>
+            <span class="text">Verifier le code</span>
             <span class="circle"></span>
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
@@ -671,36 +685,37 @@
             Vous n'avez pas reçu le code ? <a style="color: #16a34a;" href="#" onclick="resendCode(); return false;">Renvoyer le code</a>
           </p>
         </div>
+      </form>
+        <!-- Step 3-1:info personnel -->
+      <form id="reservation-step3" data-multi-step style="display: none;">
+        <div class="step" data-step="1">
+          <h3>Informations personnels</h3>
+          <label for="lastName">Nom</label>
+          <input type="text" id="lastName" placeholder="Nom" required>
 
-        <!-- Step 3:info personnel -->
-        <div class="step" data-step="3">
-         <h3>Informations personnels</h3>
-         <label for="lastName">Nom</label>
-         <input type="text" id="lastName" placeholder="Nom" required>
-         
-         <label for="firstName">Prénom</label>
-         <input type="text" id="firstName" placeholder="Prénom" required>
-         
-         <label for="idCard">N° CNI</label>
-         <input type="text" id="idCard" placeholder="N° CNI" required>
-           <button  type="button" onclick="generateCalendar()" data-next class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <label for="firstName">Prénom</label>
+          <input type="text" id="firstName" placeholder="Prénom" required>
+
+          <label for="idCard">N° CNI</label>
+          <input type="text" id="idCard" placeholder="N° CNI" required>
+          <button type="button" onclick="generateCalendar()" data-next class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-            <span class="text">Suivant</span>
+              <span class="text">Suivant</span>
             <span class="circle"></span>
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-           </button>
-       </div>
+          </button>
+        </div>
 
-        <!-- Step 4: calendrier -->
-       <div class="step" data-step="4">
+        <!-- Step 3-2: calendrier -->
+        <div class="step" data-step="2">
           <h3>Selectionner une Date</h3>
           <div id="calendar"></div>
-          <button  type="button"data-previous class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <button type="button" data-previous class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
             <span class="text">Retour</span>
@@ -709,8 +724,8 @@
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
           </button>
-           <button  type="button"  data-next class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+          <button type="button" data-next class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
             <span class="text">Confirmer</span>
@@ -718,11 +733,11 @@
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-           </button>
-       </div>
+          </button>
+        </div>
 
-        <!-- Step 5:Confirmation -->
-        <div class="step" data-step="5">
+        <!-- Step 3-3:Confirmation -->
+        <div class="step" data-step="3">
           <div style="text-align: center; padding: 30px;">
             <svg width="100" height="100" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" stroke="#4caf50" stroke-width="2"/>
@@ -730,7 +745,16 @@
             </svg>
             <h2 style="margin-top: 20px;">Réservation effectuée avec succès !</h2>
             <p>Veuillez se présenter dans un délai de 5 jours vers le lieu</p>
-            <button type="button" id="final-confirm-btn" class="animated-button" style="margin-top:20px;">Confirmer</button>
+            <button type="button" id="final-confirm-btn" class="animated-button" style="margin-top:20px;">
+              <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+            <span class="text">Confirmer</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+            </button>
           </div>
         </div>
       </form>

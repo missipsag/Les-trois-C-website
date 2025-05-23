@@ -1,4 +1,3 @@
-  /* Sleek Modal Styles */
 dialog{
     border: none;
     border-radius: 1.2rem;
@@ -17,60 +16,7 @@ dialog{
 }
 
 
-dialog form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    padding: 2.2rem 2rem 2rem 2rem;
-}
 
-dialog h2 {
-    margin-bottom: 1rem;
-    font-size: 1.35rem;
-    color: #149ec0;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-dialog label {
-    font-size: 1rem;
-    color: #1f2937;
-    margin-bottom: 0.2rem;
-    font-weight: 500;
-}
-
-input{
-  width: 100%;
-  height: 45px;
-  line-height: 30px;
-  border: 2px solid #d1d5db;
-  padding: 0 5rem;
-  padding-left: 3rem;
-  border-radius: 10px;
-  outline: none;
-  background-color: #f8fafc;
-  color: #0d0c22;
-  transition: .5s ease;
- 
-}
-
-input::placeholder {
-  color: #4B5563;
-}
-
-dialog input:focus {
-    border-color: #16a34a;
-    background: #fff;
-}
-@media (max-width: 500px) {
-    dialog form {
-        padding: 1.2rem 0.7rem 1.5rem 0.7rem;
-    }
-    dialog {
-        max-width: 98vw;
-    }
-}
 .close-modal {
   position: absolute;
   top: 18px;

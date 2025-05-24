@@ -5,6 +5,7 @@ const SQL_CREATE_USER_TABLE = require("../models/UserModels");
 const SQL_CREATE_RESERVATION_TABLE = require("../models/ReservationModel");
 const SQL_CREATE_REVIEW_TABLE = require("../models/ReviewModel");
 const SQL_CREATE_ROOMS_TABLE = require("../models/RoomModel");
+const SQL_CREATE_VERIFICATION_TABLE = require("../models/otpVerification");
 
 
 if (process.env.NODE_ENV !== "production") {
@@ -19,14 +20,15 @@ const connectDB = mysql.createConnection({
 })
 
 
-promiseConnection = promisify(connectDB.query).bind(connectDB);
+const promiseConnection = promisify(connectDB.query).bind(connectDB);
 
-module.exports.initDb = async () => {
+const initDb = async () => {
     console.log("INITIALIZING DATABASE...");
     await promiseConnection(SQL_CREATE_USER_TABLE.SQL_CREATE_USER_TABLE);
     await promiseConnection(SQL_CREATE_ROOMS_TABLE.SQL_CREATE_ROOMS_TABLE);
     await promiseConnection(SQL_CREATE_RESERVATION_TABLE.SQL_CREATE_RESERVATION_TABLE);
     await promiseConnection(SQL_CREATE_REVIEW_TABLE.SQL_CREATE_REVIEW_TABLE);
+    await promiseConnection(SQL_CREATE_VERIFICATION_TABLE.SQL_CREATE_OTP_VERIFICATION);
 }
 
 connectDB.connect(function (err) {
@@ -38,5 +40,8 @@ connectDB.connect(function (err) {
     }
 });
 
-module.exports.connectDB;
-module.exports.promiseConnection;
+module.exports = {
+    connectDB, 
+    promiseConnection,
+    initDb
+}

@@ -8,6 +8,7 @@ const session = require("express-session");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const path = require("path");
+const authRouter = require("./routes/authRoutes.js")
 
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
@@ -48,7 +49,12 @@ App.set("view engine", 'ejs');
 //initialize our Database
 initDb()
 
+App.use("/auth",authRouter);
 
+App.get('/', (req, res) => {
+    console.log(req.session)
+    console.log(req.session.id)
+});
 
 App.listen(PORT, () => {
     console.log(`SERVER RUNNING ON PORT ${PORT}`.blue);

@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 
 
 // Wrap in an async IIFE so we can use await.
-exports.sendAppointementEmailtoUser = async function(userEmail, firstName, lastName) {
+module.exports.sendAppointementEmailtoUser = async function(userEmail, firstName, lastName) {
     try{
         const info = await transporter.sendMail({
             from: process.env.APP_EMAIL,
@@ -38,17 +38,20 @@ exports.sendAppointementEmailtoUser = async function(userEmail, firstName, lastN
         });
 
         console.log("Message sent:", info.messageId);
+        return true; 
+
     } catch (err) {
-        console.error("Failed to send appointement email.")
+        console.error("Failed to send appointement email.");
+        return false;
     }
 }
 
-exports.genVerificationCode() = function () {
+module.exports.genVerificationCode = function () {
     const verificationCode = `${Math.floor(Math.random() * 9000 + 1000)}`;
     return verificationCode;
 }
 
-exports.sendVerificationCodetoUser = async function (userEmail,verificationCode, firstName, lastName) {
+module.exports.sendVerificationCodetoUser = async function (userEmail, verificationCode, firstName = '', lastName ='') {
 
     try {
         const info = await transporter.sendMail({
@@ -71,12 +74,11 @@ exports.sendVerificationCodetoUser = async function (userEmail,verificationCode,
         });
 
         console.log("Message sent:", info.messageId);
+        return true;
     } catch (err) {
-        console.error("Error: failed to send verification code.")
+        console.error("Error: failed to send verification code.");
+        return false;
     }
 
     
 }
-
-exports.sendVerificationCodetoUser;
-exports.sendAppointementEmailtoUser;

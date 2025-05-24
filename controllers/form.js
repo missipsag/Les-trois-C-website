@@ -35,13 +35,18 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
       const allValid = inputs.every(input => input.reportValidity());
       if (!allValid) return;
 
-      // Validation pour la carte d'identité (étape 3)
-      if (currentStep === 2) {
+      // Validation pour la carte d'identité (étape 1)
+      if (currentStep === 0) {
         const idCardInput = multiStepForm.querySelector("#idCard");
+        const tel = multiStepForm.querySelector('[name="tel"]').value.trim();
         if (idCardInput && !/^\d{9}$/.test(idCardInput.value)) {
           idCardInput.setCustomValidity("Le numéro de carte doit contenir exactement 9 chiffres.");
           idCardInput.reportValidity();
           idCardInput.setCustomValidity("");
+          return;
+        }
+        if (!/^\d{10}$/.test(tel)) {
+          alert("Le numéro de téléphone doit contenir exactement 10 chiffres.");
           return;
         }
       }

@@ -7,9 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
     step1.addEventListener('submit', function(e) {
       e.preventDefault();
       const email = step1.querySelector('[name="email"]').value.trim();
-      const tel = step1.querySelector('[name="tel"]').value.trim();
-      if (!email || !tel) {
-        alert("Veuillez remplir l'email et le numéro de téléphone.");
+      if (!email) {
+        alert("Veuillez remplir l'email");
         return;
       }
       // TODO: backend verification,logique...

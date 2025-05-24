@@ -2,7 +2,7 @@ module.exports.SQL_CREATE_RESERVATION_TABLE = "CREATE TABLE IF NOT EXISTS reserv
     + "reservationId varchar(255) NOT NULL PRIMARY KEY,"
     + "roomId varchar(255) NOT NULL,"
     + "userId varchar(255) NOT NULL,"
-    + "date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,"
+    + "reservationDate DATE NOT NULL,"
     + "FOREIGN KEY (roomId) REFERENCES rooms(roomId),"
     + "FOREIGN KEY (userId) REFERENCES users(userId)"
     + ");"

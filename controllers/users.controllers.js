@@ -1,26 +1,36 @@
-const {getUsers} = require("../models/UserModels")
+const { promiseConnection } = require("../config/db");
 
 // #TODOS : 
  
 // ! ADD CRUD FOR USERS 
 //! ADD TRIGGERS FOR USERS
 
-exports.getUsers = async () => {
+module.exports.getUsers = async () => {
     let query = "select * from users";
     const data = await promiseConnection(query);
     return data;
 } 
 
-exports.getUserByEmail = async (email) => {
+module.exports.getUserByEmail = async (email) => {
     const query = ` SELECT * FROM users ` 
-        + `WHERE email = ${email};`
+        + `WHERE email = '${email}';`
     
     const foundUser = await promiseConnection(query);
     return foundUser;
 }
 
+module.exports.createUser = async function (userId,  firstName, lastName, email, NID, phone, role = 'user') {
+    try{
+        const query = `INSERT INTO users VALUES ('${userId}', '${firstName}', '${lastName}', '${email}', '${NID}', '${phone}', '${role}');`; 
+        const createdUser = await promiseConnection(query);
+        return createdUser;
+    } catch (err) { 
+        new Error("Failed to add new user to database.");
+        return;
+    }
+}
 
-exports.updateUserById = async (Id, firstName, lastName, email, phone) => {
+module.exports.updateUserById = async (Id, firstName, lastName, email, phone) => {
     const query = ` UPDATE TABLE users SET`
         + `firstName = ${firstName}`
         + `lastName = ${lastName}`

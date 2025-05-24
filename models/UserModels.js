@@ -4,7 +4,7 @@ module.exports.SQL_CREATE_USER_TABLE = "   CREATE TABLE  IF NOT EXISTS users ("
     + "firstName varchar(255) NOT NULL ,"
     + "lastName varchar(255) NOT NULL,"
     + "email varchar(255) NOT NULL UNIQUE,"
-    + "hashedPassword varchar(255) NOT NULL,"
+    + "NID varchar(255) NOT NULL UNIQUE,"
     + "phone varchar(255),"
     + "role ENUM ('user', 'admin')"
     + ");";

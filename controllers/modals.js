@@ -1,7 +1,20 @@
 const openButtons = document.querySelectorAll("[data-open-modal]");
 const closeButtons = document.querySelectorAll("[data-close-modal]");
 document.addEventListener("DOMContentLoaded", function() {
-    // Open modal on [data-open-modal] click
+    //prendre les variables
+    const titre = document.getElementById("nomES");
+    const type = document.getElementById("typeEspace");
+    const buttons = document.querySelectorAll(".book-btn")
+
+    buttons.forEach(Btn =>{
+        Btn.addEventListener("click", function() {
+            const espace = Btn.dataset.espace;
+            titre.textContent = espace;
+            type.value = espace;
+
+        })
+    })
+    // Ouvrir la modal
     document.querySelectorAll("[data-open-modal]").forEach(button => {
         button.addEventListener("click", () => {
             const modalNum = button.getAttribute("data-open-modal");
@@ -10,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Close modal on [data-close-modal] click
+    // Fermer modal
     document.querySelectorAll("[data-close-modal]").forEach(button => {
         button.addEventListener("click", () => {
             const modalNum = button.getAttribute("data-close-modal");
@@ -19,13 +32,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Prevent closing by clicking outside or pressing Escape
+    // eviter de fermer on cliquer dehors
     document.querySelectorAll("dialog").forEach(dialog => {
         dialog.addEventListener("cancel", (e) => {
             e.preventDefault();
         });
         dialog.addEventListener("click", (e) => {
-            // Do nothing on backdrop click
             e.stopPropagation();
         });
     });

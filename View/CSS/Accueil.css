@@ -11,6 +11,13 @@ body{
     overflow-x: hidden;
     width:100vw;
 }
+a{
+    text-decoration: none !important;
+    color: inherit !important;
+}
+a:active {
+    border-bottom: 3px solid #587c3c;
+  }
 .contenaire{
     width: 100%;
     max-width: 1280px;
@@ -122,7 +129,9 @@ section{
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
+
 .salle-img {
     height: 16rem;
     width: 100%;
@@ -132,6 +141,7 @@ section{
 .salle-card:hover .salle-img:hover{
 transform: scale(1.1);
 }
+
 .salle-info{
     padding: 1.5rem;
 }
@@ -187,41 +197,6 @@ transform: scale(1.1);
     align-items: center;
     padding-left: 15%;
 
-}
-.annule-modif {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem; /* space between buttons */
-    margin: 2rem 0 1.5rem 0; /* space above and below */
-}
-
-.annuler,
-.modifier {
-    border-radius: 0.25rem;
-    color: white;
-   
-    font-size: 1rem;
-    width: auto;
-    border-style: hidden;
-    font-weight: bold;
-    padding: 0.5rem 1.5rem;
-    transition: background-color 0.3s;
-    box-shadow: 0 2px 8px rgba(22, 163, 74, 0.08);
-    margin: 0; /* remove default margin */
-}
-.annuler {
-    background-color: #dc2626;
-}
-.modifier {
-    background-color: #149ec0;
-}
-.annuler:hover{
-    background-color: #991b1b;
-}
-.modifier:hover {
-    background-color: #0e7490;
 }
 /*image*/
 img {
@@ -353,7 +328,7 @@ textarea {
     resize: vertical;
 }
 
-button[type="submit"] {
+.envoyer-avis{
     padding: 0.75rem;
     background-color: #facc15;
     border: none;
@@ -363,7 +338,7 @@ button[type="submit"] {
     transition: background-color 0.2s ease-in-out;
 }
 
-button[type="submit"]:hover {
+.envoyer-avis:hover {
     background-color: #eab308;
 }
 /* From Uiverse.io by aguerquin */ 
@@ -447,12 +422,6 @@ button[type="submit"]:hover {
 #star5:checked ~ label > svg {
     fill: #ab68ff;
 }
-a{
-    text-decoration: none;
-    color: inherit;  
-  }
-a:active {
-    border-bottom: 3px solid #587c3c;
-  }
+
 
 

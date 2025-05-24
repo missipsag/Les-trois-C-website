@@ -16,7 +16,7 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
     let incrementor = nextBtn ? 1 : prevBtn ? -1 : 0;
 
     // Gestion spéciale pour l'étape du calendrier (étape 4, index 3)
-    if (nextBtn && currentStep === 3) {
+    if (nextBtn && currentStep === 1) {
       if (!selectedDate) {
         alert("Veuillez sélectionner une date avant de confirmer.");
         e.preventDefault();
@@ -34,17 +34,6 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
       );
       const allValid = inputs.every(input => input.reportValidity());
       if (!allValid) return;
-
-      // Validation  pour le téléphone (étape 1)
-      if (currentStep === 0) {
-        const phoneInput = multiStepForm.querySelector("#reserv-phone");
-        if (phoneInput && !/^\d{10}$/.test(phoneInput.value)) {
-          phoneInput.setCustomValidity("Le numéro doit contenir exactement 10 chiffres.");
-          phoneInput.reportValidity();
-          phoneInput.setCustomValidity("");
-          return;
-        }
-      }
 
       // Validation pour la carte d'identité (étape 3)
       if (currentStep === 2) {
@@ -66,8 +55,8 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
     formSteps.forEach((step, index) => {
       step.classList.toggle("active", index === currentStep);
     });
-    // On génère le calendrier quand on arrive à l'étape 4 index 3
-    if (currentStep === 3) {
+    // On génère le calendrier quand on arrive à l'étape 2 de l'index 1
+    if (currentStep === 1) {
       generateCalendar(multiStepForm);
     }
   }
@@ -79,36 +68,12 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
     currentStep = stepIndex;
     showCurrentStep();
   }
-
-  // Envoi du code de confirmation (test)
-  multiStepForm.sendConfirmationCode = function() {
-    const emailInput = multiStepForm.querySelector('#reserv-email');
-    const phoneInput = multiStepForm.querySelector('#reserv-phone');
-    const email = emailInput ? emailInput.value.trim() : '';
-    const phone = phoneInput ? String(phoneInput.value).trim() : '';
-
-    if (!email || !phone) {
-      alert("Veuillez remplir l'email et le numéro de téléphone.");
-      return;
-    }
-    alert("Code envoyé à " + email);
-  };
-
-  // Vérification du code de confirmation (test avec 1234)
-  multiStepForm.verifyCode = function() {
-    const codeInput = multiStepForm.querySelector('#confirmationCode');
-    const code = codeInput ? codeInput.value : '';
-    if (code === '1234') {
-      goToStep(2);
-    } else {
-      alert("Invalid code");
-    }
-  };
-
-  multiStepForm.resendCode = function() {
-    multiStepForm.sendConfirmationCode();
-  };
-
+  function loadBootstrapStyles() {
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css';
+  document.head.appendChild(link);
+}
   // Générer un calendrier simple avec les dates dispos 
   function generateCalendar(form) {
     const availableDates = ['2025-05-20', '2025-05-21', '2025-05-25', '2025-05-28'];
@@ -121,6 +86,7 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
     let calendarYear = today.getFullYear();
 
     // pour la navigation
+    loadBootstrapStyles();
     const header = document.createElement('div');
     header.className = 'd-flex justify-content-between align-items-center mb-2';
 
@@ -201,22 +167,37 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
     calendarEl.appendChild(daysGrid);
   }
 
-  // Bouton de confirmation finalee
+  // Boutton de confirmation finalee
   const finalConfirmBtn = multiStepForm.closest("dialog")?.querySelector("#final-confirm-btn");
   if (finalConfirmBtn) {
     finalConfirmBtn.addEventListener("click", function() {
-      multiStepForm.closest("dialog").close();
+
       multiStepForm.reset();
-      multiStepForm.querySelectorAll(".step").forEach((step, idx) => {
+      formSteps.forEach((step, idx) => {
         step.classList.toggle("active", idx === 0);
       });
       selectedDate = null;
+
+      const dialog = multiStepForm.closest("dialog");
+      if (dialog) {
+        const step1 = dialog.querySelector("#reservation-step1");
+        const step2 = dialog.querySelector("#reservation-step2");
+
+        if (step1) {
+          step1.reset();
+          step1.style.display = "block";
+        }
+        if (step2) {
+          step2.reset();
+          step2.style.display = "none";
+        }
+
+        multiStepForm.style.display = "none";
+        dialog.close();
+      }
     });
   }
 
   // Attacher des fonctions globales pour les événements onclick 
-  window.sendConfirmationCode = () => multiStepForm.sendConfirmationCode();
-  window.verifyCode = () => multiStepForm.verifyCode();
-  window.resendCode = () => multiStepForm.resendCode();
   window.generateCalendar = () => generateCalendar(multiStepForm);
 });

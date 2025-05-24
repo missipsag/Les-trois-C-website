@@ -1,10 +1,12 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const  {promiseConnection}  = require("../config/db")
-const { genVerificationCode, sendVerificationCodetoUser } = require("../config/nodemailer")
+const { genVerificationCode, sendVerificationCodetoUser, sendAppointementEmailtoUser } = require("../config/nodemailer")
 const { v4: uuidv4 } = require("uuid");
 const {createVerification} = require("../controllers/otpVerification.controllers");
-const {getDateTime} = require("../config/datetime");
+const { getDateTime } = require("../config/datetime");
+const { createReservation } = require("./reservations.controllers")
+const {createUser} = require("../controllers/users.controllers")
 
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
@@ -18,14 +20,14 @@ module.exports.authentification = async function (req, res) {
 
         const otpCode = genVerificationCode();
         console.log("sent otp : " +otpCode)
-        // const falseOtp= "0000"
-        sendVerificationCodetoUser(email, otpCode);
+        const falseOtp= "0000"
+        sendVerificationCodetoUser(email, falseOtp);
 
         const verificationId = uuidv4();
 
         // expires in 30 minutes
         let expiresAt = getDateTime(1000 * 60 *30);
-        const hashedOtp = await bcrypt.hash(otpCode, 10);
+        const hashedOtp = await bcrypt.hash(falseOtp, 10);
         //console.log("hashedh otp : ", hashedOtp);
 
         const createdVerification = await createVerification(
@@ -76,15 +78,36 @@ module.exports.otpVerification = async function (req, res) {
     }
 }
 module.exports.register = async (req, res) => {
-    try {
-        const { userId, firstName, lastName, email , password, phone, role } = req.body;
-        const hashedPassword = await bcrypt.hash(password, 10);
-        let sql = "INSERT INTO users ( userId, firstName, lastName, email, hashedPassword, phone, role )"
-                + `VALUES (${userId}, ${firstName}, ${lastName}, ${email}, ${hashedPassword}, ${phone}, ${role});`
+    try { 
 
-        const isRegistered = await promiseConnection(sql);
-        res.status(201)
-            .json({ message: `User ${firstName + ' ' + lastName} registered ` });
+        if (! req.session.authentificated) return res.status(401).json({message : "Unauthenticated."})
+        if (!req.session.email) return res.status(404).json({message : "email not found."})
+       
+        // avoir nom prénom tel NID date de réservation
+        const { firstName, lastName, phone, NID, reservationDate } = req.body; 
+
+        
+        const userId = uuidv4();
+        
+        const createdUser = await createUser(userId, firstName, lastName, req.session.email, NID, phone); // role will be at default user
+
+        if (!createdUser) return res.status(500).json({ message: "User registration failed for some reason." });
+          
+        const isSent = sendAppointementEmailtoUser(req.session.email, firstName, lastName);
+        
+        if (!isSent) return res.status(500).json({ message: "Error : Couldn't send appointement email for some reason." })
+        
+        // creating reservation we need reservationId, roomId, userId, reservationDate,
+        const reservationId = uuidv4(); 
+        // delete roomId, falseReservationID
+        const roomId = '99f2fcf9-311f-4b35-a04e-5b658018b83f'
+        const falseReservationDate = '2025-06-13'
+        const isCreated =  createReservation(reservationId, roomId, userId, falseReservationDate)
+        
+        if( ! isCreated) return res.status(500).json({message : "failed to create reservation"})
+        
+        return res.status(200).json({ message:` User ${firstName + ' ' + lastName} registration complete. Appointement Email sent.`})
+        
     } catch (err) {
         res.status(500)
             .json({ message: "User registration failed" });
@@ -114,7 +137,7 @@ module.exports.login = async (req, res) => {
         
     } catch (err) {
         res.status(500)
-            .json({message: "User login failed"})
+            .json({ message: "User login failed" });
     }
 
 }

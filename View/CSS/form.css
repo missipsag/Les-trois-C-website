@@ -53,7 +53,7 @@ dialog form {
 dialog h2 {
     margin-bottom: 1rem;
     font-size: 1.35rem;
-    color: #149ec0;
+    color: #16a34a;
     text-align: center;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -96,4 +96,9 @@ dialog input:focus {
     dialog {
         max-width: 98vw;
     }
+}
+.step-description {
+    font-size: 0.9rem;
+    color: #4a4a4a;
+    margin-bottom: 1rem;
 }

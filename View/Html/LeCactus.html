@@ -395,11 +395,11 @@
          -->
         <div class="step active">
             <h2>Réserver l'espace de <span id="nomES">mariage</span></h2>
-          <label for="reserv-email">Email</label>
+            <p class="step-description">
+            Veuillez saisir votre adresse e-mail pour commencer votre réservation. Un code de confirmation vous sera envoyé afin de vérifier votre identité avant de poursuivre.
+            </p>
+          <label for="reserv-email"></label>
           <input type="email" id="reserv-email" name="email" placeholder="Email" required>
-
-          <label for="reserv-phone">Numéro de Tel</label>
-          <input type="tel" id="reserv-phone" name="tel" placeholder="N° Tel" required>
           <button type="submit" class="animated-button" data-next>
             <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
@@ -446,6 +446,9 @@
 
           <label for="firstName">Prénom</label>
           <input type="text" id="firstName" placeholder="Prénom" required>
+
+          <label for="reserv-phone">Numéro de Tel</label>
+          <input type="tel" id="reserv-phone" name="tel" placeholder="N° Tel" required>
 
           <label for="idCard">N° CNI</label>
           <input type="text" id="idCard" placeholder="N° CNI" required>

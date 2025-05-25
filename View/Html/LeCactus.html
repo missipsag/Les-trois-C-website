@@ -10,22 +10,24 @@
     <script defer src="../../controllers/modals.js"></script>
     <script defer src="../../controllers/form.js"></script>
     <script defer src="../../controllers/emailVerif.js"></script>
+    <script defer src="../../controllers/scroll.js"></script>
     <title>Le Cactus</title>
 </head>
 <body>
 <!--barre de nav-->
-  <nav>
-        <div class="contenaire"> <!--div contenaire-->
-            <div class="nav-barre">
-                <div class="logo">Le Cactus</div>
-                <div class="nav-liens"> <!--lien de nav-->
-                    <a href="#accueil" class="nav-lien">Accueil</a>
-                    <a href="#salles" class="nav-lien">Salles</a>
-                    <a href="#gallery" class="nav-lien">Gallery</a>
-                    <a href="#contact" class="nav-lien">Contact</a>
-                </div>
-            </div>      
-        </div>
+  <nav id="nav">
+     <div class="contenaire"> <!--div contenaire-->
+       <div class="nav-barre">
+           <div class="logo">Le Cactus
+           </div>
+           <div class="nav-liens"> <!--lien de nav-->
+             <a href="#accueil" class="nav-lien">Accueil</a>
+             <a href="#salles" class="nav-lien">Salles</a>
+             <a href="#gallery" class="nav-lien">Gallery</a>
+             <a href="#contact" class="nav-lien">Contact</a>
+           </div>
+       </div>      
+      </div>
   </nav>
 
 <!--espace de la photo d'accueil-->
@@ -33,7 +35,7 @@
           <div class="center">
               <h1>Le Cactus</h1>
               <p>Où chaque occasion fleurit en une expérience inoubliable</p>
-              <a href="#rooms" class="btn-explore">Explore Our Rooms </a> <!--button pour explorer les salles-->
+              <a href="#rooms" class="btn-explore">Explorez Nos Espaces </a> <!--button pour explorer les salles-->
           </div>
   </section>
    
@@ -43,33 +45,33 @@
           <div class="contenaire-titre">
               <h2 class="section-titre">Nos Espaces</h2>
               <div class="lignediviseur"></div>
-              <p class="section-text">hoisissez parmi nos trois espaces magnifiquement conçus, chacun adapté à différents types d'événements</p>
+              <p class="section-text">Choisissez parmi nos trois espaces magnifiquement conçus, chacun adapté à différents types d'événements</p>
           </div>
           <div class="salle-grid">
             
               <div class="salle-card"> <!--Marriage-->
-                      <img class="salle-img" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="salle marriage">
+                      <img class="salle-img" src="../table2.jpeg" alt="salle marriage">
                   <div class="salle-info">
-                      <h3>Espace Marriage</h3>
+                      <h3>Espace Mariage</h3>
                       <p>Un espace élégant parfait pour les cérémonies, les réceptions et les célébrations romantiques</p>
                       <div class="salle-tags">
-                          <span>Capacité: 50-350</span>
-                          <span>Capacité: 50-350</span>
-                          <span>Capacité: 50-350</span>
+                          <span>Capacité: 350</span>
+                          <span>Salle séparée/mixte</span>
+                          <span>Traiteur</span>
                       </div>
                       <button class="book-btn" data-open-modal data-espace="Mariages">Réserver maintenant</button>
                   </div>
            </div>
 
               <div class="salle-card"> <!--Conference-->
-                  <img  class="salle-img" src="https://images.unsplash.com/photo-1568219656418-15c329312bf1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="espace conference">
+                  <img  class="salle-img" src="../conference.jpg" alt="espace conference">
                   <div class="salle-info">
                       <h3>Espace Conférence</h3>
                       <p>Cadre professionnel pour les réunions d'affaires, séminaires et événements d'entreprise</p>
                       <div class="salle-tags">
-                          <span>Capacité: 50-150</span>
-                          <span>Capacité: 50-150</span>
-                          <span>Capacité: 50-150</span>
+                          <span>Capacité: 80</span>
+                          <span>Projecteur</span>
+                          <span>Ecran Tactile</span>
                       </div>
                         <button class="book-btn" data-open-modal data-espace="Conférence">Réserver maintenant</button>
                   </div>
@@ -80,10 +82,10 @@
                   <div class="salle-info">
                       <h3>Espace Evénements Spéciaux</h3>
                       <p>Lieu polyvalent pour les anniversaires, les jubilés et toutes vos célébrations marquantes</p>
-                      <div class="salle-tags">
-                          <span>Capacité: 50-350</span>
-                          <span>Capacité: 50-350</span>
-                          <span>Capacité: 50-350</span>
+                        <div class="salle-tags">
+                          <span>Capacité: 300</span>
+                          <span>Décor customisé</span>
+                          <span>Jardin</span>
                       </div>
                         <button class="book-btn" data-open-modal data-espace="événements spéciaux">Réserver maintenant</button>
                   </div>
@@ -159,7 +161,7 @@
   <section id="avis">
       <div class="contenaire">
           <div class="contenaire-titre">
-              <h2 class="section-titre">What Our Clients Say</h2>
+                <h2 class="section-titre">Avis de Nos Clients</h2>
               <div class="lignediviseur"></div>
           </div>
           <div class="avis-grid">
@@ -173,13 +175,15 @@
                           <i class="fas fa-star"></i>
                       </div>
                       <p class="avis-text">
-                      "Le Cactus made our wedding day absolutely magical. The staff went above and beyond to ensure everything was perfect."
+                      "Je suis la mariée du 11 Avril, hier on a passé une merveilleuse soirée grâce à la salle, Mdr Ouali le propriétaire, que je remercie énormément pour disponibilité et l'écoute, le service qui était parfait et fluide. Une salle sublime à l'intérieur et à l'extérieur, avec une belle vue qui nous permet d'avoir des photos unique... Avis personnel et de tous les invités qui ont apprécié et aimé la soirée.
+On se donne rdv pour la fête de ma sœur, on attend juste la date pour venir réserver.
+Je vous remercie énormément encore une fois, je vous souhaite beaucoup de réussites."
                       </p>
                       <div class="client-img">
-                          <img class="cl-img" src="https://randomuser.me/api/portraits/women/43.jpg " alt="Sarah J." class="w-12 h-12 rounded-full mr-4 object-cover">
+                          <img class="cl-img" src="https://lh3.googleusercontent.com/a/ACg8ocJaNRl8HJquBmUsgL8uyKQAPFcCzhaTgyEK96z-FoEB-s9EZw=w36-h36-p-rp-mo-br100" alt="Rosa B." class="w-12 h-12 rounded-full mr-4 object-cover">
                           <div>
-                              <h4 class="client-nom">Sarah J.</h4>
-                              <p class="client-type">Wedding Client</p>
+                              <h4 class="client-nom">Rosa B.</h4>
+                              <p class="client-type">Client(e) Mariage</p>
                           </div>
                       </div>
                 </div>
@@ -193,13 +197,14 @@
                           <i class="fas fa-star"></i>
                       </div>
                       <p class="avis-text">
-                      "Le Cactus made our wedding day absolutely magical. The staff went above and beyond to ensure everything was perfect."
-                      </p>
+                      "Un lieu exceptionnel pour célébrer vos événements ! La salle des fêtes Le Cactus offre un cadre 
+                      moderne et élégant, avec une ambiance chaleureuse et
+                       conviviale. Les équipements sont de haute qualité, le personnel est attentionné, J'ai été séduite par ce cadre magnifique, c'est un endroit que je recommande vivement pour des moments inoubliables !”</p>
                       <div class="client-img">
-                          <img class="cl-img" src="https://randomuser.me/api/portraits/women/43.jpg " alt="Sarah J." class="w-12 h-12 rounded-full mr-4 object-cover">
+                          <img class="cl-img" src="https://lh3.googleusercontent.com/a-/ALV-UjVG1nV45273xxO9EZKPD2kXbf0TNFoHd5XKZ9VQfKSwYrXKitmH=w36-h36-p-rp-mo-br100" alt="Emma E." class="w-12 h-12 rounded-full mr-4 object-cover">
                           <div>
-                              <h4 class="client-nom">Sarah J.</h4>
-                              <p class="client-type">Wedding Client</p>
+                              <h4 class="client-nom">Emma E.</h4>
+                              <p class="client-type">Client(e) Conférence</p>
                           </div>
                       </div>
                 </div>
@@ -213,13 +218,18 @@
                           <i class="fas fa-star"></i>
                       </div>
                       <p class="avis-text">
-                      "Le Cactus made our wedding day absolutely magical. The staff went above and beyond to ensure everything was perfect."
+                      "J'ai été invitée à une fete de circumcision il y a environ un mois de cela et j'ai été vivement
+                       surprise par cette salle ! L'endroit est propre, le cadre est 
+                       spacieux et la vue en hauteur fait rêver ! Le gérant et 
+                       le personnel ont su répondre à nos attentes et ont fait de notre 
+                       fête familiale un souvenir inoubliable. Très belle salle que je
+                        recommande lah y berek 😁👍🌹"
                       </p>
                       <div class="client-img">
-                          <img class="cl-img" src="https://randomuser.me/api/portraits/women/43.jpg " alt="Sarah J." class="w-12 h-12 rounded-full mr-4 object-cover">
+                          <img class="cl-img" src="https://lh3.googleusercontent.com/a-/ALV-UjWp9E-8mrO-t-Qr03ZfzgIMBLqpnFcQq8DTBOUxwvUydvcw4cM=w36-h36-p-rp-mo-br100 " alt="Linda E." class="w-12 h-12 rounded-full mr-4 object-cover">
                           <div>
-                              <h4 class="client-nom">Sarah J.</h4>
-                              <p class="client-type">Wedding Client</p>
+                              <h4 class="client-nom">Linda E.</h4>
+                              <p class="client-type">Invité(e) Evéneemnt Spéciale</p>
                           </div>
                       </div>
                 </div>
@@ -274,9 +284,19 @@
                               <input class="avisform" type="text" name="firstname" placeholder="Prénom" required>
                               <input class="avisform" type="text" name="lastName" placeholder="Nom" required>
                               <input class="avisfrom" type="email" name="email" placeholder="Email" required>
+                              <label for="client-type"></label>
+                              <select class="select-avis" id="client-type" name="cl-type" required>
+                                <option value="">Vous étiez?</option>
+                                <option value="Cmariage">Client(e) Mariage</option>
+                                <option value="Vmariage">Invité(e) Mariage</option>
+                                <option value="Cconference">Client(e) Conférence</option>
+                                <option value="Vconference">Invité(e) Conférence</option>
+                                <option value="Cspecial">Client(e) Evénement Spéciale</option>
+                                <option value="Vspecial">Invité(e) Evénement Spéciale</option>
+                              </select>
                               <textarea name="review" rows="4" placeholder="Votre avis..." required></textarea>
                   
-                              <button class="envoyer-avis" type="submit">Envoyer avis</button>
+                              <button class="envoyer-avis" type="submit">Envoyer Avis</button>
                           </form>
                       </div>
                   </div>
@@ -286,34 +306,34 @@
   </section>
 
 <!-- Contact Section -->
-  <section class="contact-section">
+  <section id="contact">
     <div class="contenaire">
       <div class="contenaire-titre">
-        <h2 class="section-titre">Contact Us</h2>
+        <h2 class="section-titre">Contactez-nous</h2>
         <div class="lignediviseur"></div>
         <p class="section-text">
-          Have questions or ready to book your event? Reach out to our team today.
+          Vous avez des questions ou vous êtes prêt à réserver votre événement ? Contactez notre équipe dès aujourd'hui.
         </p>
       </div>
 
       <div class="contact-grid">
         <!-- Contact Info -->
         <div class="contact-info">
-          <h3 class="contact-title">Get In Touch</h3>
+            <h3 class="contact-title">Contactez Nous</h3>
 
           <div class="info-item">
             <i class="fas fa-map-marker-alt info-icon"></i>
             <div class="info-details">
-              <h4>Address</h4>
-              <p>123 Event Avenue, Suite 100<br>Cityville, ST 12345</p>
+              <h4>Adresse</h4>
+              <p><a href="https://maps.app.goo.gl/mAZVMAVU1WXhJdFAA" >115000, Bétrouna - Ivethronen<br> - CW 147, 15000</a></p>
             </div>
           </div>
 
           <div class="info-item">
             <i class="fas fa-phone-alt info-icon"></i>
             <div class="info-details">
-              <h4>Phone</h4>
-              <p>(555) 123-4567</p>
+                <h4>Téléphone</h4>
+              <p>06 74 34 49 73<br>044 93 47 25</p>
             </div>
           </div>
 
@@ -321,66 +341,64 @@
             <i class="fas fa-envelope info-icon"></i>
             <div class="info-details">
               <h4>Email</h4>
-              <p>events@lecactus.com</p>
+              <p><a href="mailto:salledesfeteslecactus@gmail.com?subject=Subject%20Here&body=Your%20message%20here">salledesfeteslecactus@gmail.com</a></p>
             </div>
           </div>
 
           <div class="info-item">
             <i class="fas fa-clock info-icon"></i>
             <div class="info-details">
-              <h4>Hours</h4>
-              <p>Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm<br>Sunday: Closed</p>
+                <h4>Horaires</h4>
+                <p>Dimanche - Samedi <br> 9h00 - 23h00</p>
             </div>
           </div>
 
-          <div class="follow-us">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
+          <div class="suivez">
+            <h4>Suivez-nous</h4>
+            <div class="social">
+              <a class="aicon"href="https://www.facebook.com/profile.php?id=100095144543464&mibextid=LQQJ4d"><i class="fab fa-facebook"></i></a>
+              <a  class="aicon" href="https://instagram.com/lecactustaamurit?igshid=MmIzYWVlNDQ5Yg=="><i class="fab fa-instagram"></i></a>
             </div>
           </div>
         </div>
 
         <!-- Contact Form -->
         <div class="contact-form">
-          <h3 class="form-title">Send Us a Message</h3>
+            <h3 class="form-title">Envoyez-nous un message</h3>
           <form id="contactForm" novalidate>
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" class="form-control" required />
+              <label for="name">Nom</label>
+              <input type="text" id="name" name="name" required />
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" class="form-control" required />
+              <input type="email" id="email" name="email"  required />
             </div>
             <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" class="form-control" required />
+              <label for="phone">N° Tel</label>
+              <input type="tel" id="phone" name="phone"  required />
             </div>
             <div class="form-group">
-              <label for="event-type">Event Type</label>
-              <select id="event-type" name="event-type" class="form-control" required>
-                <option value="">Select an option</option>
-                <option value="conference">Conference</option>
-                <option value="wedding">Wedding</option>
-                <option value="special">Special Occasion</option>
-                <option value="other">Other</option>
+              <label for="event-type">Type d'événement</label>
+              <select id="ev-type" name="ev-type" required>
+                <option value="">Selectionner le type</option>
+                <option value="mariage">Mariage</option>
+                <option value="conference">Conférence</option>
+                <option value="special">Evénement Spéciale</option>
               </select>
             </div>
             <div class="form-group">
               <label for="message">Message</label>
               <textarea id="message" name="message" rows="4" class="form-control" required></textarea>
             </div>
-            <button type="submit" class="submit-btn">Send Message</button>
+            <button type="submit" class="message-btn">Envoyer Message</button>
           </form>
         </div>
       </div>
     </div>
   </section>
- 
+
+ <!--footer-->
 
 <!-- Modals-->
   <dialog data-modal>

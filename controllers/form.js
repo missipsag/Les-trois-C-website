@@ -80,15 +80,15 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
   document.head.appendChild(link);
 }
   // Générer un calendrier simple avec les dates dispos 
-  function generateCalendar(form) {
+  function generateCalendar(form, calendarMonth = null, calendarYear = null) {
     const availableDates = ['2025-05-20', '2025-05-21', '2025-05-25', '2025-05-28'];
     const calendarEl = form.querySelector('#calendar');
     if (!calendarEl) return;
     calendarEl.innerHTML = '';
 
     const today = new Date();
-    let calendarMonth = today.getMonth();
-    let calendarYear = today.getFullYear();
+    if (calendarMonth === null) calendarMonth = today.getMonth();
+    if (calendarYear === null) calendarYear = today.getFullYear();
 
     // pour la navigation
     loadBootstrapStyles();
@@ -99,18 +99,26 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
     prevBtn.className = 'btn btn-outline-secondary btn-sm';
     prevBtn.textContent = '<';
     prevBtn.onclick = () => {
-      calendarMonth = calendarMonth - 1 < 0 ? 11 : calendarMonth - 1;
-      calendarYear = calendarMonth === 11 ? calendarYear - 1 : calendarYear;
-      generateCalendar(form);
+      let prevMonth = calendarMonth - 1;
+      let prevYear = calendarYear;
+      if (prevMonth < 0) {
+        prevMonth = 11;
+        prevYear -= 1;
+      }
+      generateCalendar(form, prevMonth, prevYear);
     };
 
     const nextBtn = document.createElement('button');
     nextBtn.className = 'btn btn-outline-secondary btn-sm';
     nextBtn.textContent = '>';
     nextBtn.onclick = () => {
-      calendarMonth = calendarMonth + 1 > 11 ? 0 : calendarMonth + 1;
-      calendarYear = calendarMonth === 0 ? calendarYear + 1 : calendarYear;
-      generateCalendar(form);
+      let nextMonth = calendarMonth + 1;
+      let nextYear = calendarYear;
+      if (nextMonth > 11) {
+        nextMonth = 0;
+        nextYear += 1;
+      }
+      generateCalendar(form, nextMonth, nextYear);
     };
 
     const monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];

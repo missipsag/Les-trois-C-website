@@ -20,14 +20,14 @@ module.exports.authentification = async function (req, res) {
 
         const otpCode = genVerificationCode();
         console.log("sent otp : " +otpCode)
-        const falseOtp= "0000"
-        sendVerificationCodetoUser(email, falseOtp);
+        //const falseOtp= "0000"
+        sendVerificationCodetoUser(email, otpCode);
 
         const verificationId = uuidv4();
 
         // expires in 30 minutes
         let expiresAt = getDateTime(1000 * 60 *30);
-        const hashedOtp = await bcrypt.hash(falseOtp, 10);
+        const hashedOtp = await bcrypt.hash(otpCode, 10);
         //console.log("hashedh otp : ", hashedOtp);
 
         const createdVerification = await createVerification(
@@ -55,7 +55,7 @@ module.exports.otpVerification = async function (req, res) {
         const currDateTime = getDateTime();
         const query = "SELECT hashedOtpCode FROM otpVerifications WHERE "
             + `email = '${email}' AND expiresAt > '${currDateTime}' AND used = 0;`
-        
+        console.log("####### inside otp verification controllers")
         const foundVerification = await promiseConnection(query);
 
         if (!foundVerification) return res.status(404).json({ message: "Verification not found." });
@@ -70,6 +70,7 @@ module.exports.otpVerification = async function (req, res) {
             + `SET used = 1 `
             + `WHERE email = '${email}';` 
         await promiseConnection(upDateQuery);
+        console.log("### after updating the otp verification ")
         
         return res.status(200).json({ message: "User authentificated." });
 
@@ -78,14 +79,15 @@ module.exports.otpVerification = async function (req, res) {
     }
 }
 module.exports.register = async (req, res) => {
-    try { 
-
+    try {   
+        console.log("##### inside register controller")
         if (! req.session.authentificated) return res.status(401).json({message : "Unauthenticated."})
-        if (!req.session.email) return res.status(404).json({message : "email not found."})
+        console.log("##### session email : ", req.session.email)
+        if (!req.session.email) return res.status(404).json({ message: "email not found." })
        
         // avoir nom prénom tel NID date de réservation
-        const { firstName, lastName, phone, NID, reservationDate } = req.body; 
-
+        const { firstName, lastName, phone, NID } = req.body; 
+        console.log("##### personal information : " , firstName, lastName, phone, NID)
         
         const userId = uuidv4();
         

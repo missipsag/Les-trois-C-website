@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const {authentification, otpVerification, register} = require("../controllers/auth.controllers");
-
+const {validateEmail, validateOtpCode} = require("../middleware")
 router.route("/authentification")
-    .post(authentification);
+    .post(...validateEmail, authentification);
 
 router.route("/otpVerification")
-    .post(otpVerification);
+    .post(...validateOtpCode, otpVerification);
 //router.post("/login", login);
 
 

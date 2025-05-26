@@ -41,9 +41,10 @@ App.use(session(SESSION_CONFIG));
 App.use(methodOverride('_method'));
 App.use(express.urlencoded({ extended: true }));
 App.use(express.json());
-App.engine("ejs", ejsMate);
-App.set("views", path.join(__dirname, 'views'));
-App.set("view engine", 'ejs');
+App.use(express.static(path.join(__dirname, './public')))
+App.engine('ejs', ejsMate);
+App.set('views', path.join(__dirname, 'views'));
+App.set('view engine', 'ejs');
 
 
 //initialize our Database
@@ -53,7 +54,8 @@ App.use("/auth",authRouter);
 
 App.get('/', (req, res) => {
     console.log(req.session)
-    console.log(req.session.id)
+    console.log(req.session.id) 
+    res.render("home")
 });
 
 App.listen(PORT, () => {

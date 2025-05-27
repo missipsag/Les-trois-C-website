@@ -426,7 +426,7 @@ Je vous remercie énormément encore une fois, je vous souhaite beaucoup de réu
       </div>
     </div>
 
-    <div class=".footer">
+    <div class=".toutdroit">
       <p>&copy; 2025 Le Cactus. Tout droits reservés</p>
     </div>
 
@@ -504,7 +504,7 @@ Je vous remercie énormément encore une fois, je vous souhaite beaucoup de réu
 
           <label for="idCard">N° CNI</label>
           <input type="text" id="idCard" placeholder="N° CNI" required>
-          <button type="button" onclick="generateCalendar()" data-next class="animated-button">
+          <button type="button" data-next class="animated-button">
             <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
@@ -516,53 +516,34 @@ Je vous remercie énormément encore une fois, je vous souhaite beaucoup de réu
           </button>
         </div>
 
-        <!-- Step 3-2: calendrier -->
-        <div class="step" data-step="2">
-          <h3>Selectionner une Date</h3>
-          <div id="calendar"></div>
-          <button type="button" data-previous class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Retour</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-          <button type="button" data-next class="animated-button">
-            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Confirmer</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-          </button>
-        </div>
-
         <!-- Step 3-3:Confirmation -->
-        <div class="step" data-step="3">
+        <div class="step" data-step="2">
           <div style="text-align: center; padding: 30px;">
-            <svg width="100" height="100" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="#4caf50" stroke-width="2"/>
-              <path d="M8 12.5L11 15.5L16 9.5" stroke="#4caf50" stroke-width="2" fill="none"/>
-            </svg>
-            <h2 style="margin-top: 20px;">Réservation effectuée avec succès !</h2>
-            <p>Veuillez se présenter dans un délai de 5 jours vers le lieu</p>
-            <button type="button" id="final-confirm-btn" class="animated-button" style="margin-top:20px;">
-              <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
-            <span class="text">Confirmer</span>
-            <span class="circle"></span>
-            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
-            </svg>
+            <h2 style="margin-bottom: 20px;">Cliquer pour sélectionner les détails de votre réservation</h2>
+            <button type="button" id="final-confirm-btn" class="animated-button" style="margin-top:20px;"onclick="ReservationDetails()">
+              <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg"></svg>
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+              </svg>
+              <span class="text">Sélectionner les détails</span>
+              <span class="circle"></span>
+              <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+              </svg>
             </button>
           </div>
         </div>
+        <script>
+          function ReservationDetails() {
+            var espace = document.getElementById('typeEspace')?.value?.toLowerCase();
+            if (espace === 'Mariages') {
+              window.location.href = 'Mariage.html';
+            } else if (espace === 'Conférence') {
+              window.location.href = 'conference.html';
+            } else if (espace === 'événements spéciaux') {
+              window.location.href = 'special.html';
+            }
+          }
+        </script>
       </form>
     </div>
   </dialog>

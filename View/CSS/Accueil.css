@@ -343,9 +343,6 @@ form {
 .avis-card form input:focus{
     border-color: #16a34a;
 }
-.select-avis{
-
-}
 
 textarea {
     resize: vertical;
@@ -527,9 +524,9 @@ form select {
     font-size: 1rem;
     background-color: #ffffff;
     color: #374151;
-    appearance: none; /* Removes default browser styling */
-    -webkit-appearance: none; /* For Safari */
-    -moz-appearance: none; /* For Firefox */
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23374151'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
@@ -580,5 +577,6 @@ option:hover {
     outline: none;
     box-shadow: 0 0 5px rgba(22, 163, 74, 0.5);
 }
+
 
 

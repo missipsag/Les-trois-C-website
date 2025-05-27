@@ -1,11 +1,40 @@
-    
-module.exports.SQL_CREATE_USER_TABLE = "   CREATE TABLE  IF NOT EXISTS users ("
-    + "userId varchar(255) UNIQUE PRIMARY KEY NOT NULL,"
-    + "firstName varchar(255) NOT NULL ,"
-    + "lastName varchar(255) NOT NULL,"
-    + "email varchar(255) NOT NULL UNIQUE,"
-    + "NID varchar(255) NOT NULL UNIQUE,"
-    + "phone varchar(255),"
-    + "role ENUM ('user', 'admin')"
-    + ");";
+const sequelize  = require("../config/db");
+const Sequelize = require("sequelize");
+    const User = sequelize.define('User', {
+        userId: {
+            type: Sequelize.STRING,
+            primaryKey: true,
+            allowNull: false,
+            unique: true
+        },
+        firstName: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        lastName: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        email: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            unique: true
+        },
+        NID: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            unique: true
+        },
+        phone: {
+            type: Sequelize.STRING
+        },
+        role: {
+            type: Sequelize.ENUM('user', 'admin')
+        }
+    });
+
+module.exports = User;
+
+
+
 

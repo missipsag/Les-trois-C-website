@@ -15,6 +15,9 @@
   justify-content: center;
    background: linear-gradient(to bottom, #16a34a 99%, #15803d);
 }
+#cafeh > h1{
+     color: white;
+}
 
 body {
   margin: 0;
@@ -183,7 +186,7 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 20px;
   margin: 0 0;
   border-radius: 5px;
-  color: black;
+  color: white;
   text-align: center;
   text-decoration: none;
   transition: background-color 0.3s;
@@ -208,7 +211,7 @@ body::-webkit-scrollbar-thumb:hover {
   display: block;
   padding: 20px;
   margin: 0;
-  color: black;
+  color: white;
   text-align: center;
   text-decoration: none;
   border-radius: 5px;

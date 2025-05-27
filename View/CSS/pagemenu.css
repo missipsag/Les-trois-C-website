@@ -1,0 +1,581 @@
+@import url("https://fonts.googleapis.com/css2?family=Paytone+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Paytone+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Paytone+One&family=Syne:wght@400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Merienda:wght@300..900&family=Paytone+One&family=Syne:wght@400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Merienda:wght@300..900&family=Paytone+One&family=Syne:wght@400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alice&family=Nanum+Myeongjo&family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alice&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nanum+Myeongjo&family=Quicksand:wght@300..700&display=swap");
+#cafeh {
+  width: 100vw;
+  padding: 20px 0;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   background: linear-gradient(to bottom, #16a34a 99%, #15803d);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+    display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+
+.polaroid:hover {
+  box-shadow: 0 0 20px 3px #a67b5b;
+}
+
+.polaroid button:hover {
+  border: #16a34a;
+}
+
+body::-webkit-scrollbar-track {
+  background: #a67b5b;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  visibility: visible;
+  background: #16a34a;
+}
+
+#indexnav {
+  background-color: #16a34a;
+}
+
+#navout a {
+  background-color: #16a34a;
+}
+
+#navout a:hover {
+  background-color: #084719;
+  color: white;
+}
+
+#menu-map li a {
+  background-color: #16a34a;
+}
+
+#menu-map li a:hover {
+  background-color: #084719;
+  color: white;
+  box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+.categorie {
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.polaroid-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 20px 40px;
+  padding: 0px 0px;
+  text-align: center;
+  display: inline-block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  width: 250px;
+  height: 270px;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.polaroid:hover {
+  transform: scale(1.1);
+}
+
+/* Ensure the label matches the polaroid dimensions */
+.polaroid label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Ensure the image fits properly within the label */
+.polaroid img {
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+    max-height: 60%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.polaroid .caption {
+  margin-top: 20px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+.polaroid .caption .prix {
+  font-family: "Alice", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.polaroid label:hover {
+    border-color: #ccc;
+    transform: scale(1.05);
+}
+
+.categorie .titre {
+  text-align: center;
+  font-size: larger;
+  color: black;
+}
+
+#section-body {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+
+#section-menu {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#indexnav {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+  position: sticky;
+}
+
+#navout {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 5px 5px;
+  padding-bottom: 10px;
+}
+#navout a {
+  flex: 1;
+  display: block;
+  padding: 20px;
+  margin: 0 0;
+  border-radius: 5px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-size: 1.5em;
+  border: none;
+  transition: transform ease 0.3s, box-shadow ease 0.3s;
+}
+
+#navout a:hover {
+  box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+#indexnav #menu-map {
+  position: sticky;
+  top: 2;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#menu-map li a {
+  display: block;
+  padding: 20px;
+  margin: 0;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.5em;
+  border: none;
+  transition: transform ease 0.3s, box-shadow ease 0.3s;
+}
+
+#menu-map li {
+  margin: 0;
+  padding-bottom: 4px;
+}
+
+#menu-map li a:hover {
+  background-color: #084719;
+  color: white;
+  box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+.polaroid input[type="checkbox"]:checked + label,
+.polaroid input[type="radio"]:checked + label {
+    border-color: #007BFF;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    transform: scale(1.05);
+}
+
+
+.checkbox-grid, .radio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 1em 0;
+}
+
+.checkbox-item, .radio-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1em;
+    background-color: #f9f9f9;
+    padding: 0.5em 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.checkbox-item:hover, .radio-item:hover {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+}
+
+.checkbox-item input[type="checkbox"], .radio-item input[type="radio"] {
+    accent-color: #007BFF; 
+    transform: scale(1.2); 
+}
+
+
+.price {
+    font-size: 0.9em;
+    color: #555;
+    margin-left: 0.5em;
+    font-style: italic;
+}
+.calendar-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12), 0 1.5px 6px rgba(0,0,0,0.08);
+  max-width: 350px;
+  margin: 2em auto;
+  padding: 2em 1.5em 1.5em 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.calendar-title {
+  font-size: 1.2em;
+  color: #333;
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.dropdown-container {
+    margin: 1em 0;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.dropdown-container label {
+    font-weight: bold;
+    color: #333;
+}
+
+.dropdown-container select {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dropdown-container select:hover,
+.dropdown-container select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+.calendar-grid {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  width: 100%;
+  min-height: 120px;
+  }
+  .calendar-day {
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+   -webkit-user-select: none;
+   user-select: none;
+   width: calc(100% / 7 - 2px);
+  aspect-ratio: 1/1;
+  background: #f7f7f7;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  font-size: 0.95em;
+  min-width: 32px;
+  min-height: 32px;
+  max-width: 36px;
+  max-height: 36px;
+  }
+  .calendar-day.available {
+    background-color: #c8f7c5;
+  }
+  .calendar-day.unavailable {
+    pointer-events: none;
+     color: #ccc;
+  background: #f0f0f0;
+  cursor: not-allowed;
+  }
+  .calendar-day.selected {
+    border: 2px solid #3f51b5;
+    background-color: #a3d2ff;
+    background: #00796b;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,121,107,0.12);
+  }
+.calendar-weekdays {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+  color: #888;
+  font-weight: 600;
+}
+
+.calendar-weekdays > div {
+  flex: 1 1 0;
+  text-align: center;
+}
+
+.calendar-day.empty {
+  background: transparent;
+  cursor: default;
+}
+
+.calendar-day.available:hover {
+  background: #e0f7fa;
+  color: #00796b;
+}
+.calendar-day.selected {
+  
+}
+.d-flex.justify-content-between.align-items-center.mb-2 {
+  width: 100%;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+.btn.calendar-prev, .btn.calendar-next {
+  background: #f7f7f7;
+  border: none;
+  color: #00796b;
+  font-size: 1.1em;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.btn.calendar-prev:hover, .btn.calendar-next:hover {
+  background: #e0f7fa;
+}
+
+#section-menu > div > h2,
+.categorie > h2.titre,
+.categorie > h3.titre {
+  font-size: 1.5em;
+  color: #00796b;
+  font-family: inherit;
+  font-weight: 700;
+  margin-bottom: 1em;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.order-summary-box {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  max-width: 400px;
+  margin: 2em auto 0 auto;
+  padding: 1.5em 1.2em 1.2em 1.2em;
+  text-align: left;
+  font-size: 1.05em;
+  color: #333;
+  border: 1px solid #e0e0e0;
+}
+.order-summary-box h3 {
+  margin-top: 0;
+  color: #00796b;
+  font-size: 1.2em;
+  text-align: center;
+}
+.order-summary-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0 1.5em 0;
+}
+.order-summary-box li {
+  margin-bottom: 0.5em;
+}
+#confirm-order-btn {
+  display: block;
+  margin: 0 auto;
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 2em;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#confirm-order-btn:hover {
+  background: #15803d;
+}
+
+
+/*footer*/
+.footer{
+    background-color: #1f2937;
+    color: #fff;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    margin-top: 4rem;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
+}
+.f-contenaire{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .f-contenaire {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+}
+
+.p-contenaire, .l-contenaire, .cont-espace {
+    flex: 1 1 0;
+    min-width: 180px;
+}
+.p-contenaire {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.p-titre {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #16a34a;
+}
+.p-text {
+    color: #9ca3af;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.l-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.ul-el {
+    color: #9ca3af;
+    transition: color 0.3s;
+    font-size: 1rem;
+    padding: 0.25rem 0;
+    border-radius: 4px;
+}
+.ul-el:hover {
+    color: #16a34a;
+    background: rgba(22,163,74,0.08);
+}
+.cont-espace {
+    margin-top: 2rem;
+}
+@media (min-width: 768px) {
+    .cont-espace {
+        margin-top: 0;
+    }
+}
+.toutdroit {
+    border-top: 1px solid #374151;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+footer a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+footer a:hover {
+    color: #16a34a;
+}

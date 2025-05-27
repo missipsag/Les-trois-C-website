@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="../CSS/pagemenu.css">
+    
+    <link rel="icon" href="../Images/coffee.ico" type="image/jpg">
+    <script defer src="../../controllers/scroll.js"></script>
+    <script defer src="../../controllers/calendar.js"></script>
+    
+    <title>Mariage</title>
+</head>
+<body>
+    <header id="cafeh">
+       <h1> Le Cactus</h1>
+    </header>
+
+    <section id="section-body">
+        <section id="indexnav">
+            <section id="navout">
+                <a href="Page Fast Food.html">Date</a>
+                <a href="Page Diner.html">Menu</a>
+                <a href="Page Reservation.html">Services</a>
+           </section>
+            <ul id="menu-map">
+                <li><a href="#pdej">Petit Dejeuner</a></li>
+                <li><a href="#Gateau">Gateaux</a></li>
+                <li><a href="#plats">Plats</a></li>
+                <li><a href="#Dessert">Dessert</a></li>
+                <li><a href="#services">Services</a></li>
+            </ul>
+        </section>
+
+        <form id="section-menu" action="/submit-order" method="POST"> <!-- Form for the entire menu -->
+          <div class="Date">
+          <h2 class="titre">Selectionner une Date</h2>
+          <div id="calendar" class="calendar-container">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <button type="button" class="btn btn-outline-secondary btn-sm calendar-prev">&lt;</button>
+              <span class="fw-bold calendar-title">Mois Année</span>
+              <button type="button" class="btn btn-outline-secondary btn-sm calendar-next">&gt;</button>
+            </div>
+            <div class="calendar-weekdays">
+              <div>Lun</div>
+              <div>Mar</div>
+              <div>Mer</div>
+              <div>Jeu</div>
+              <div>Ven</div>
+              <div>Sam</div>
+              <div>Dim</div>
+            </div>
+            <div class="calendar-grid"></div>
+          </div>
+        </div>
+            <!-- Petit dejeuner-->
+          <section class="categorie">
+            <h2 class="titre" id="pdej">Petit Déjeuner</h2>
+            <div class="polaroid-grid">
+                <div class="polaroid">
+                    <input type="checkbox" id="cafe-au-lait" name="items[]" value="Café au Lait" hidden>
+                    <label for="cafe-au-lait">
+                        <img src="../Images/FOOD/café au lait.jpg" alt="café au lait">
+                        <div class="caption">Café au Lait
+                            <p class="prix">90 da</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="polaroid">
+                    <input type="checkbox" id="cafe-noir" name="items[]" value="Café noir" hidden>
+                    <label for="cafe-noir">
+                        <img src="../Images/FOOD/coffee-2714970_1280.jpg" alt="café noir">
+                        <div class="caption">Café noir
+                            <p class="prix">70 da</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="polaroid">
+                    <input type="checkbox" id="the" name="items[]" value="Thé" hidden>
+                    <label for="the">
+                        <img src="../Images/FOOD/thé.jpg" alt="Thé">
+                        <div class="caption">Thé
+                            <p class="prix">70 DA</p>
+                        </div>
+                    </label>
+                </div>
+                 <div class="polaroid">
+                    <input type="checkbox" id="jus-orange" name="items[]" value="Jus d'orange" hidden>
+                    <label for="jus-orange">
+                        <img src="../Images/FOOD/orange.jpg" alt="jus d'orange">
+                        <div class="caption">Jus d'orange
+                            <p class="prix">130 DA</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+          </section>
+
+          <!-- Boissons Fraiches -->
+          <section class="categorie">
+            <h2 class="titre" id="Gateaux">Gateaux</h2>
+            <div class="polaroid-grid">
+               
+                <div class="polaroid">
+                    <input type="checkbox" id="Mekroud" name="items[]" value="Mekroud" hidden>
+                    <label for="Mekroud">
+                        <img src="../mekroud.jpg" alt="Mekroud">
+                        <div class="caption">Mekroud
+                            <p class="prix">140 DA</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="polaroid">
+                    <input type="checkbox" id="baklawa" name="items[]" value="Baklawa" hidden>
+                    <label for="baklawa">
+                        <img src="../baklava.jpg" alt="Baklawa">
+                        <div class="caption"> Baklawa
+                            <p class="prix">160 DA</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="polaroid">
+                    <input type="checkbox" id="charak" name="items[]" value="Charak" hidden>
+                    <label for="charak">
+                        <img src="../charak.jpeg" alt="Charak">
+                        <div class="caption"> Charak
+                            <p class="prix">100 DA</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="polaroid">
+                    <input type="checkbox" id="msemen" name="items[]" value="Msemen" hidden>
+                    <label for="msemen">
+                        <img src="../msemen.jpg" alt="Msemen">
+                        <div class="caption">Msemen
+                            <p class="prix">100 DA</p>
+                        </div>
+                    </label>
+                </div>
+                 <div class="polaroid">
+                    <input type="checkbox" id="beignets-francais" name="items[]" value="Beignets Français" hidden>
+                    <label for="beignets-francais">
+                        <img src="../Images/FOOD/beignets.jpg" alt="beignets français">
+                        <div class="caption">Beignets Français
+                            <p class="prix">70 DA</p>
+                        </div>
+                    </label>
+                </div>
+                 <div class="polaroid">
+                    <input type="checkbox" id="mille-feuilles" name="items[]" value="Mille Feuilles" hidden>
+                    <label for="mille-feuilles">
+                        <img src="../Images/FOOD/mille-feuille.jpg" alt="mille feuilles">
+                        <div class="caption">Mille Feuilles
+                            <p class="prix">65 DA</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+          </section>
+
+          <section class="categorie">
+            <h2 class="titre" id="plats">Plats</h2>
+            <div class="polaroid-grid">
+                <div class="polaroid">
+                    <input type="checkbox" id="couscous" name="items[]" value="Couscous aux légumes" hidden>
+                    <label for="couscous">
+                       <img src="../Images/FOOD/Couscous.jpg" alt="couscous">
+                       <div class="caption">Couscous aux Légumes
+                          <p class="prix">650 DA</p>
+                       </div>
+                    </label>
+                </div>
+                <div class="polaroid">
+                    <input type="checkbox" id="chorba" name="items[]" value="Chorba Frik" hidden>
+                    <label for="chorba">
+                        <img src="../Images/FOOD/chorba.jpg" alt="chorba">
+                       <div class="caption">Chorba Frik
+                          <p class="prix">300 DA</p>
+                       </div>
+                    </label>
+                </div>
+                <div class="polaroid">
+                    <input type="checkbox" id="melange" name="items[]" value="Mélange Riz, pomme de terre, rôti de veau" hidden>
+                    <label for="melange">
+                        <img src="../roti.jpg" alt="roti">
+                        <div class="caption">Mélange Riz, pomme de terre, rôti de veau
+                            <p class="prix">750 DA</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="polaroid">
+                    <input type="checkbox" id="salade" name="items[]" value="Hors d'oeuvres" hidden>
+                    <label for="salade">
+                        <img src="../hors.jpg" alt="hors d'oeuvres">
+                        <div class="caption">Hors d'oeuvres
+                            <p class="prix">200 DA</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+          </section>
+          <!-- Desserts -->
+          <section class="categorie">
+            <h2 class="titre" id="Dessert">Desserts</h2>
+            <div class="polaroid-grid">
+                <div class="polaroid">
+                    <input type="checkbox" id="Banane" name="items[]" value="Bananes" hidden>
+                    <label for="Banane">
+                        <img src="../banane.jpg" alt="Banane">
+                        <div class="caption">Bananes
+                            <p class="prix">60 DA</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="polaroid">
+                    <input type="checkbox" id="raisin" name="items[]" value="Raisin" hidden>
+                    <label for="raisin">
+                        <img src="../raisin.jpg" alt="Risain">
+                        <div class="caption">Risain
+                            <p class="prix">150 DA</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="polaroid">
+                    <input type="checkbox" id="poire" name="items[]" value="Poires" hidden>
+                    <label for="poire">
+                        <img src="../poire.jpg" alt="Poire">
+                        <div class="caption">Poires
+                            <p class="prix">100 DA</p>
+                        </div>
+                    </label>
+                </div>
+                <div class="polaroid">
+                    <input type="checkbox" id="pomme" name="items[]" value="Pommes" hidden>
+                    <label for="pomme">
+                        <img src="../pomme.jpg" alt="Pommes">
+                        <div class="caption">Pommes
+                            <p class="prix">90 DA</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+          </section>
+
+          <!-- Services Section -->
+          <section class="categorie">
+            <h2 class="titre" id="services">Services</h2>
+            <div class="polaroid-grid">
+                <!-- Service 1: DJ -->
+                <div class="polaroid">
+                    <input type="checkbox" id="dj" name="services[]" value="DJ" hidden>
+                    <label for="dj">
+                        <img src="../dj.jpg" alt="DJ">
+                        <div class="caption">DJ
+                            <p class="prix">50000 DA</p>
+                        </div>
+                    </label>
+                </div>
+                <!-- Service 2: Traiteur -->
+                <div class="polaroid">
+                    <input type="checkbox" id="bonbon" name="services[]" value="bonbon" hidden>
+                    <label for="bonbon">
+                        <img src="../71VYZN9piYL._AC_UF1000,1000_QL80_.jpg" alt="Traiteur">
+                        <div class="caption">Bonbons pour enfants
+                            <p class="prix">150 DA</p>
+                        </div>
+                    </label>
+                </div>
+                <!-- Service 3: Salle mixte -->
+                <div class="polaroid">
+                    <input type="radio" id="salle-mixte" name="salle" value="Salle mixte" hidden>
+                    <label for="salle-mixte">
+                        <img src="../mixte.png" alt="Salle mixte">
+                        <div class="caption">Salle mixte</div>
+                    </label>
+                </div>
+                <!-- Service 4: Salle non mixte -->
+                <div class="polaroid">
+                    <input type="radio" id="salle-non-mixte" name="salle" value="Salle non mixte" hidden>
+                    <label for="salle-non-mixte">
+                        <img src="../nonmixte.png" alt="Salle non mixte">
+                        <div class="caption">Salle non mixte</div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Cars Sub-Service -->
+            <h3 class="titre" id="cars">Voiture</h3>
+            <div class="polaroid-grid">
+                <!-- Car 1: Macan 2021 -->
+                <div class="polaroid">
+                    <input type="radio" id="macan-2021" name="car" value="Macan 2021" hidden>
+                    <label for="macan-2021">
+                        <img src="../macan.jpg" alt="Macan 2021">
+                        <div class="caption">Macan 2021
+                            <p class="prix">20000 DA</p>
+                        </div>
+                    </label>
+                </div>
+              
+                
+                <div class="polaroid">
+                    <input type="radio" id="glc-2020" name="car" value="GLC 2020 coupé" hidden>
+                    <label for="glc-2020">
+                        <img src="../glc.jpg" alt="GLC 2020 coupé">
+                        <div class="caption">GLC 2020 coupé
+                            <p class="prix">18000 DA</p>
+                        </div>
+                    </label>
+                </div>
+               
+                <div class="polaroid">
+                    <input type="radio" id="audi-rs6" name="car" value="Audi rs6" hidden>
+                    <label for="audi-rs6">
+                        <img src="../rs6.jpg" alt="Jaguar XF">
+                        <div class="caption">Audi RS6
+                            <p class="prix">25000 DA</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+          </section>
+
+          <!-- Submit Button -->
+          <div style="text-align:center; margin:2em 0;">
+            <button type="submit" style="padding:1em 2em; font-size:1.2em;">Commander</button>
+          </div>
+        </form>
+
+     </section>
+<!--footer-->
+  <footer class="footer">
+    <div class="f-contenaire">
+      <div class="p-contenaire"><!--le cactus-->
+        <h4 class="p-titre">Le Cactus</h4>
+        <p class="p-text">Créer des expériences inoubliable<br> dans nos espaces événementales<br> magnifiquement conçus</p>
+      </div>
+      <div class="l-contenaire"><!--liens rapides-->
+        <h4 class="l-title">Liens Rapides</h4>
+        <ul class="ul">
+          <li><a  class="ul-el" href="#accueil">Accueil</a></li>
+          <li><a class="ul-el" href="#salles">Salles</a></li>
+          <li><a class="ul-el" href="#gallery">Gallery</a></li>
+          <li><a class="ul-el" href="#avis">Avis</a></li>
+          <li><a class="ul-el" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="cont-espace"><!--Espaces-->
+        <h4 class="l-title">Espaces</h4>
+        <ul class="ul">
+          <li><a class="ul-el" href="#salles">Mariage</a></li>
+          <li><a class="ul-el" href="#salles">Conférence</a></li>
+          <li><a class="ul-el" href="#salles">Evénements Spéciaux</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class=".toutdroit">
+      <p>&copy; 2025 Le Cactus. Tout droits reservés</p>
+    </div>
+
+
+  </footer>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    let lastClicked = null;
+
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.addEventListener('click', function (e) {
+        if (lastClicked === this) {
+          this.checked = false;
+          lastClicked = null;
+        } else {
+          lastClicked = this;
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

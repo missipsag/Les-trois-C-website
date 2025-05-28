@@ -1,3 +1,4 @@
+const {generateCalendar }= require("./form")
 // function isVisible(el) {
 //   // offsetParent is null if element or any ancestor has display:none
 //   return !!(el.offsetParent);
@@ -26,8 +27,8 @@
 
 
 function disableInputs(step) {
-    step.querySelectorAll('input, select, textarea').forEach(field => {
-        field.disabled = true; // Disable all fields in the step
+    step.querySelectorAll('input, select, textarea, button[type="submit"]').forEach(field => {
+        field.disabled= true ; // Disable all fields in the step
     });
 
 }
@@ -36,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const step1 = document.getElementById('reservation-step1');
     const step2 = document.getElementById('reservation-step2');
     const step3 = document.getElementById('reservation-step3');
+    const step4 = document.getElementById('reservation-step4');
+    const step5 = document.getElementById('reservation-step5');
 
 
     if (step1) {
@@ -57,9 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     return alert(data.message || 'Erreur lors de l’envoi de l’OTP');
                 }
 
-                step1.style.display = 'none';
-                step1.setAttribute('novalidate', 'novalidate'); // Disable validation for step 1
+                step1.setAttribute('novalidate', true); // Disable validation for step 1
                 disableInputs(step1); // Disable all inputs in step 1
+                step1.style.display = 'none';
                 step2.style.display = 'block';
                // updateRequiredFields(); // Update required fields for step 2
 
@@ -97,9 +100,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert('Impossible de contacter le serveur.');
             }
             // TODO: bacckend verification, logique...
-            step2.style.display = 'none';
-            step2.setAttribute('novalidate', 'novalidate'); // Disable validation for step 2
+            step2.setAttribute('novalidate', true); // Disable validation for step 2
             disableInputs(step2)
+            step2.style.display = 'none';
             if (step3) step3.style.display = 'block';
             //updateRequiredFields(); // Update required fields for step 3
         });
@@ -136,7 +139,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 //updateRequiredFields(); // Update required fields for step 3
             
-                alert('Inscription réussie !');
+                step3.setAttribute('novalidate', true); // Disable validation for step 2
+                disableInputs(step3)
+                step3.style.display = 'none';
+                if (step3) step4.style.display = 'block';
                 
 
             } catch (error) {
@@ -144,7 +150,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert('Impossible de contacter le serveur.');
             }
         });
+    } 
+
+    if (step4) {
+        generateCalendar(step4)
+        btnConfirmer = step4.querySelector('button[id ="button-calendrier-confirmer"]')
+        btnConfirmer.addEventListener('')
     }
+
 
     // Optional: resend code
     window.resendCode = function () {

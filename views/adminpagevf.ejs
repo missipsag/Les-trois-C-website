@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Le Cactus</title>
+    <link rel="stylesheet" href="/styles/adminpagevf.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">Le Cactus</a>
+            <div class="admin-badge">
+                👤 Administration
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-title">
+            <h1>Tableau de Bord</h1>
+            <p class="subtitle">Gérez vos réservations et avis clients</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-number" id="total-reservations">2</div>
+                <div class="stat-label">Réservations en attente</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-number" id="total-reviews">2</div>
+                <div class="stat-label">Avis à modérer</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-number" id="approved-today">0</div>
+                <div class="stat-label">Approuvés aujourd'hui</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-number">4.8</div>
+                <div class="stat-label">Note moyenne</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('reservations')">
+                    📅 Réservations
+                </div>
+                <div class="tab" onclick="switchTab('reviews')">
+                         ⭐ Avis Clients
+                </div>
+            </div>
+
+            <!-- Réservations -->
+            <div id="reservations-content" class="tab-content active">
+                <div class="section-title">
+                    <div class="section-icon">📅</div>
+                    Gestion des Réservations
+                </div>
+
+                <!-- Mobile Cards View -->
+                <div class="cards-container" id="reservations-cards">
+                    <% reservations.forEach(reservation=> { %>
+                        <div class="item-card" data-status="<%= reservation.status %>">
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h3>
+                                        <%= reservation.clientName %>
+                                    </h3>
+                                    <div class="item-details">
+                                        <%= reservation.email %>
+                                    </div>
+                                </div>
+                                <span class="status <%= reservation.status %>">
+                                    <%= reservation.statusLabel %>
+                                </span>
+                            </div>
+                            <div class="item-content">
+                                <div class="event-info">
+                                    <strong>
+                                        <%= reservation.eventType %>
+                                    </strong><br>
+                                    <%= reservation.guestCount %> invités - <%= reservation.roomName %><br>
+                                            <strong>Date:</strong>
+                                            <%= reservation.date %><br>
+
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <% if (reservation.status==='pending' ) { %>
+                                    <button class="btn btn-confirm"
+                                        onclick="confirmReservation(this)">Confirmer</button>
+                                    <button class="btn btn-cancel" onclick="cancelReservation(this)">Annuler</button>
+                                    <% } else if (reservation.status==='confirmed' ) { %>
+                                        <button class="btn btn-modify"
+                                            onclick="modifyReservation(this)">Modifier</button>
+                                        <% } %>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+
+                <!-- Desktop Table View -->
+                <div class="desktop-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Événement</th>
+                                <th>Date</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservations-table">
+                            <tr data-status="pending">
+                                <td>
+                                    <strong>Marie Dubois</strong><br>
+                                    <small>marie.dubois@email.com</small>
+                                </td>
+                                <td>
+                                    <strong>Mariage</strong><br>
+                                    <small>150 invités - Salle Principale</small>
+                                </td>
+                                <td>
+                                    <strong>15 Juin 2025</strong><br>
+                                    <small>18h00 - 02h00</small>
+                                </td>
+                                <td><span class="status pending">En attente</span></td>
+                                <td class="actions">
+                                    <button class="btn btn-confirm"
+                                        onclick="confirmReservation(this)">Confirmer</button>
+                                    <button class="btn btn-cancel" onclick="cancelReservation(this)">Annuler</button>
+                                </td>
+                            </tr>
+                            <tr data-status="pending">
+                                <td>
+                                    <strong>Jean Martin</strong><br>
+                                    <small>jean.martin@email.com</small>
+                                </td>
+                                <td>
+                                    <strong>Conférence</strong><br>
+                                    <small>80 participants - Salle de Conférence</small>
+                                </td>
+                                <td>
+                                    <strong>22 Juin 2025</strong><br>
+                                    <small>09h00 - 17h00</small>
+                                </td>
+                                <td><span class="status pending">En attente</span></td>
+                                <td class="actions">
+                                    <button class="btn btn-confirm"
+                                        onclick="confirmReservation(this)">Confirmer</button>
+                                    <button class="btn btn-cancel" onclick="cancelReservation(this)">Annuler</button>
+                                </td>
+                            </tr>
+                            <tr data-status="confirmed">
+                                <td>
+                                    <strong>Sophie Laurent</strong><br>
+                                    <small>sophie.laurent@email.com</small>
+                                </td>
+                                <td>
+                                    <strong>Anniversaire</strong><br>
+                                    <small>50 invités - Salon VIP</small>
+                                </td>
+                                <td>
+                                    <strong>30 Mai 2025</strong><br>
+                                    <small>20h00 - 01h00</small>
+                                </td>
+                                <td><span class="status confirmed">Confirmée</span></td>
+                                <td class="actions">
+                                    <button class="btn btn-modify" onclick="modifyReservation(this)">Modifier</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Avis -->
+            <div id="reviews-content" class="tab-content">
+                <div class="section-title">
+                    <div class="section-icon">⭐</div>
+                    Modération des Avis
+                    <!-- <pre><%= JSON.stringify(reviews, null, 2) %></pre> -->
+                </div>
+                <% reviews.forEach(review => { %>
+
+                <!-- Mobile Cards View -->
+                <div class="cards-container" id="reviews-cards">
+                        <!-- <div class="item-card" data-status="<%= review.status %>"> -->
+                            <div class="item-header">
+                                <div class="item-info">
+                                    <h3>
+                                        <%= review.authorFirstName %> <%= review.authorLastName %>
+                                    </h3>
+                                    <div class="item-details">
+                                        <%= review.authorEmail %> 
+                                    </div>
+                                </div>
+                                <span class="status <%= review.status %>">
+                                    <%= review.status %>
+                                </span>
+                            </div>
+                            <div class="item-content">
+                                <div class="rating">
+                                    <%= review.rating %>
+                                </div>
+                                <div class="review-content">
+                                    <div class="review-text">
+                                        <%= review.content %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <% if (review.status==='pending' ) { %> 
+                    
+                                    <form action="/review/approveReview/<%=review.reviewId%>" method="post"><button class="btn btn-approve" onclick="approveReview(this)" type="submit">Approuver</button></form>
+                                   <form action="/review/refuseReview/<%= review.reviewId %>?_method=DELETE" method="post"> <button type="submit" class="btn btn-reject" onclick="rejectReview(this)">Refuser</button></form>
+                                   
+                                    <% } %>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+
+                <!-- Desktop Table View -->
+                <div class="desktop-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Note</th>
+                                <th>Commentaire</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reviews-table">
+                            <% reviews.forEach(review=> { %>
+                                <tr data-status="<%= review.status %>">
+                                    <td>
+                                        <strong>
+                                            <%= review.authorFirstName %> <%= review.authorLastName %>
+                                        </strong><br>
+                                        <small>
+                                            <%= review.authorEmail %>
+                                        </small>
+                                    </td>
+                                    <td>
+                                        <div class="rating">
+                                            <%= review.rating %>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <%= review.content %>
+                                    </td>
+                                    
+                                    <td><span class="status <%= review.status %>">
+                                            <%= review.status %>
+                                        </span></td>
+                                    <td class="actions">
+                                        <% if (review.status ==='pending' ) { %>
+                                            <form action="/review/approveReview/<%=review.reviewId%>" method="post"><button type="submit" class="btn btn-approve"
+                                                    onclick="approveReview(this)" >Approuver</button></form>
+                                            <form action="/review/refuseReview/<%= review.reviewId %>?_method=DELETE" method="post"> <button type="submit"
+                                                    class="btn btn-reject" onclick="rejectReview(this)">Refuser</button></form>
+                                            <% } %>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script pour le fonctionnement des onglets -->
+    <script>
+        function switchTab(tabName) {
+            // Masquer tout le contenu des onglets
+            document.querySelectorAll('.tab-content').forEach(tabContent => {
+                tabContent.classList.remove('active');
+            });
+
+            // Retirer la classe 'active' de tous les onglets
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Afficher le contenu de l'onglet sélectionné
+            document.getElementById(tabName + '-content').classList.add('active');
+            // Ajouter la classe 'active' à l'onglet sélectionné
+            document.querySelector('.tab[onclick="switchTab(\'' + tabName + '\')"]').classList.add('active');
+        }
+
+        // Fonctions pour gérer les réservations (confirmer, annuler, voir les détails)
+        function confirmReservation(button) {
+            // Pour la vue mobile (cards)
+            let card = button.closest('.item-card');
+            if (card) {
+                const statusLabel = card.querySelector('.status');
+                statusLabel.classList.remove('pending');
+                statusLabel.classList.add('confirmed');
+                statusLabel.innerText = 'Confirmée';
+                card.setAttribute('data-status', 'confirmed');
+                updateReservationStats();
+                return;
+            }
+            // Pour la vue desktop (table)
+            let row = button.closest('tr');
+            if (row) {
+                const statusCell = row.querySelector('.status');
+                statusCell.classList.remove('pending');
+                statusCell.classList.add('confirmed');
+                statusCell.innerText = 'Confirmée';
+                row.setAttribute('data-status', 'confirmed');
+                // Remplacer les boutons par "Modifier" et "Détails"
+                const actionsCell = row.querySelector('.actions');
+                if (actionsCell) {
+                    actionsCell.innerHTML =
+                        '<button class="btn btn-modify" onclick="modifyReservation(this)">Modifier</button>';
+                }
+                updateReservationStats();
+            }
+        }
+
+        function cancelReservation(button) {
+            // Pour la vue mobile (cards)
+            let card = button.closest('.item-card');
+            if (card) {
+                card.style.display = 'none';
+                updateReservationStats();
+                return;
+            }
+            // Pour la vue desktop (table)
+            let row = button.closest('tr');
+            if (row) {
+                row.style.display = 'none';
+                updateReservationStats();
+            }
+        }
+
+        function viewReservationDetails(button) {
+            // Pour la vue mobile (cards)
+            let card = button.closest('.item-card');
+            if (card) {
+                const clientName = card.querySelector('.item-info h3').innerText;
+                const eventInfo = card.querySelector('.event-info').innerHTML;
+                const status = card.querySelector('.status').innerText;
+                alert('Détails de la réservation pour ' + clientName + ':\n' + eventInfo + '\nStatut: ' + status);
+                return;
+            }
+            // Pour la vue desktop (table)
+            let row = button.closest('tr');
+            if (row) {
+                const clientName = row.querySelector('td strong').innerText;
+                const eventInfo = row.children[1].innerText + '\n' + row.children[2].innerText;
+                const status = row.querySelector('.status').innerText;
+                alert('Détails de la réservation pour ' + clientName + ':\n' + eventInfo + '\nStatut: ' + status);
+            }
+        }
+
+        function modifyReservation(button) {
+            // Pour la vue mobile (cards)
+            let card = button.closest('.item-card');
+            if (card) {
+                const clientName = card.querySelector('.item-info h3').innerText;
+                alert('Modifier la réservation pour ' + clientName + ' (fonctionnalité à implémenter)');
+                return;
+            }
+            // Pour la vue desktop (table)
+            let row = button.closest('tr');
+            if (row) {
+                const clientName = row.querySelector('td strong').innerText;
+                alert('Modifier la réservation pour ' + clientName + ' (fonctionnalité à implémenter)');
+            }
+        }
+
+        // Fonctions pour gérer les avis (voir, approuver, refuser)
+        function approveReview(button) {
+            // Pour la vue mobile (cards)
+            let card = button.closest('.item-card');
+            if (card) {
+                const statusLabel = card.querySelector('.status');
+                statusLabel.classList.remove('pending');
+                statusLabel.classList.add('approved');
+                statusLabel.innerText = 'Approuvé';
+                updateReviewStats();
+                return;
+            }
+            // Pour la vue desktop (table)
+            let row = button.closest('tr');
+            if (row) {
+                const statusCell = row.querySelector('.status');
+                statusCell.classList.remove('pending');
+                statusCell.classList.add('approved');
+                statusCell.innerText = 'Approuvé';
+                row.setAttribute('data-status', 'approved');
+                // Retirer les boutons Approuver/Refuser
+                const actionsCell = row.querySelector('.actions');
+                if (actionsCell) {
+                    actionsCell.innerHTML = '';
+                }
+                updateReviewStats();
+            }
+        }
+
+        function rejectReview(button) {
+            // Pour la vue mobile (cards)
+            let card = button.closest('.item-card');
+            if (card) {
+                card.style.display = 'none';
+                updateReviewStats();
+                return;
+            }
+            // Pour la vue desktop (table)
+            let row = button.closest('tr');
+            if (row) {
+                row.style.display = 'none';
+                updateReviewStats();
+            }
+        }
+
+        function viewReview(button) {
+            // Pour la vue mobile (cards)
+            let card = button.closest('.item-card');
+            if (card) {
+                const clientName = card.querySelector('.item-info h3').innerText;
+                const reviewText = card.querySelector('.review-text').innerText;
+                const rating = card.querySelector('.rating').innerText;
+                const status = card.querySelector('.status').innerText;
+                alert('Détails de l\'avis de ' + clientName + ':\n' + reviewText + '\nNote: ' + rating + '\nStatut: ' + status);
+                return;
+            }
+            // Pour la vue desktop (table)
+            let row = button.closest('tr');
+            if (row) {
+                const clientName = row.querySelector('td strong').innerText;
+                const reviewText = row.children[2].innerText;
+                const rating = row.querySelector('.rating').innerText;
+                const status = row.querySelector('.status').innerText;
+                alert('Détails de l\'avis de ' + clientName + ':\n' + reviewText + '\nNote: ' + rating + '\nStatut: ' + status);
+            }
+        }
+
+        // Fonctions pour mettre à jour les statistiques
+        function updateReservationStats() {
+            const totalReservations = document.querySelectorAll('.item-card').length;
+            const confirmedReservations = document.querySelectorAll('.item-card[data-status="confirmed"]').length;
+            const pendingReservations = totalReservations - confirmedReservations;
+
+            document.getElementById('total-reservations').innerText = pendingReservations;
+            document.getElementById('approved-today').innerText = confirmedReservations;
+        }
+
+        function updateReviewStats() {
+            const totalReviews = document.querySelectorAll('#reviews-table tr').length;
+            const approvedReviews = document.querySelectorAll('#reviews-table tr[data-status="approved"]').length;
+            const pendingReviews = totalReviews - approvedReviews;
+
+            document.getElementById('total-reviews').innerText = pendingReviews;
+        }
+
+        // Initialiser les statistiques au chargement de la page
+        document.addEventListener('DOMContentLoaded', () => {
+            updateReservationStats();
+            updateReviewStats();
+        });
+    </script>
+</body>
+
+</html>

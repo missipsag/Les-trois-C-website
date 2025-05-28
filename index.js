@@ -15,9 +15,13 @@ const session = require("express-session");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const path = require("path");
+
 const authRouter = require("./routes/authRoutes.js")
 const admin = require("./routes/adminRoutes.js")
 const reviewRoutes = require("./routes/reviewRoutes.js");
+const contactRouter = require("./routes/contact.route.js");
+const cors = require("cors");
+
 
 
 if (process.env.NODE_ENV !== "production") {
@@ -60,12 +64,11 @@ App.set('view engine', 'ejs');
 //initialize our Database
 
 
-   
-
-
+App.use(cors());
 App.use("/auth", authRouter);
 App.use(admin)
 App.use("/review", reviewRoutes);
+App.use("/api", contactRouter);
 
 App.get('/', (req, res) => {
     console.log(req.session)

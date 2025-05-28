@@ -2,15 +2,26 @@ const express = require("express");
 const colors = require("colors");
 const PORT = 3000;
 const mysql = require("mysql2");
-const {connectDB, initDb} = require('./config/db.js');
+const { connectDB, initDb } = require('./config/db.js');
+const sequelize = require('./config/db');
+const  User  = require('./models/UserModels');
+const Room  = require('./models/RoomModel');
+const Reservation  = require('./models/ReservationModel');
+const  Review  = require('./models/ReviewModel');
+const OtpVerification  = require('./models/otpVerification');
+
 const App = express();
-const session = require("express-session"); 
+const session = require("express-session");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const path = require("path");
-const authRouter = require("./routes/authRoutes.js");
+
+const authRouter = require("./routes/authRoutes.js")
+const admin = require("./routes/adminRoutes.js")
+const reviewRoutes = require("./routes/reviewRoutes.js");
 const contactRouter = require("./routes/contact.route.js");
 const cors = require("cors");
+
 
 
 if (process.env.NODE_ENV !== "production") {
@@ -26,7 +37,7 @@ const SESSION_CONFIG = {
     cookie: {
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7,
-        httpOnly:true
+        httpOnly: true
     }
 }
 
@@ -51,19 +62,26 @@ App.set('view engine', 'ejs');
 
 
 //initialize our Database
-initDb()
+
 
 App.use(cors());
-App.use("/auth",authRouter);
+App.use("/auth", authRouter);
+App.use(admin)
+App.use("/review", reviewRoutes);
 App.use("/api", contactRouter);
-
 
 App.get('/', (req, res) => {
     console.log(req.session)
-    console.log(req.session.id) 
+    console.log(req.session.id)
     res.render("home")
 });
 
-App.listen(PORT, () => {
+sequelize.sync({force: false}).then((req) => {
+    console.log("Database synchronisation successful")
+    App.listen(PORT, () => {
     console.log(`SERVER RUNNING ON PORT ${PORT}`.blue);
 })
+}).catch((error) => {
+    console.log('ERROR synchronizing the database : ', error)
+})
+

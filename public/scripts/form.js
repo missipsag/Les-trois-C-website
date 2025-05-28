@@ -38,10 +38,11 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
         }
       }
     }
-
+    
     currentStep += incrementor;
     showCurrentStep();
   });
+
 
   function showCurrentStep() {
     formSteps.forEach((step, index) => {
@@ -88,3 +89,4 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
     });
   }
 });
+

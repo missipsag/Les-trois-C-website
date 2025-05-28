@@ -1,11 +1,46 @@
-    
-module.exports.SQL_CREATE_USER_TABLE = "   CREATE TABLE  IF NOT EXISTS users ("
-    + "userId varchar(255) UNIQUE PRIMARY KEY NOT NULL,"
-    + "firstName varchar(255) NOT NULL ,"
-    + "lastName varchar(255) NOT NULL,"
-    + "email varchar(255) NOT NULL UNIQUE,"
-    + "NID varchar(255) NOT NULL UNIQUE,"
-    + "phone varchar(255),"
-    + "role ENUM ('user', 'admin')"
-    + ");";
+const sequelize = require("../config/db");
+const {Sequelize, DataTypes} = require("sequelize");
+const reservationModel = require("./ReservationModel"); // Assuming ReservationModel is in the same directory
+
+
+
+const User =  sequelize.define('User', {
+        userId: {
+            type: DataTypes.STRING,
+            primaryKey: true,
+            allowNull: false,
+            unique: true
+        },
+        firstName: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        lastName: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
+        NID: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
+        phone: {
+            type: DataTypes.STRING
+        },
+        role: {
+            type: DataTypes.ENUM('user', 'admin')
+        }
+    });
+
+ 
+
+
+
+
+
 

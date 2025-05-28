@@ -249,9 +249,9 @@
 
                 <!-- ajouter review -->
                 <div class="avis-card">
-                    <form action="/submit-review" method="POST">
+                    <form action="/review/submitReview" method="POST" >
                         <div class="rating">
-                            <input type="radio" id="star5" name="rate" value="5" />
+                            <input type="radio" id="star5" name="rating" value="5" />
                             <label title="Excellent!" for="star5">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
                                     <path
@@ -294,10 +294,10 @@
                         </div>
 
 
-                        <input class="avisform" type="text" name="firstname" placeholder="Prénom" required>
-                        <input class="avisform" type="text" name="lastName" placeholder="Nom" required>
-                        <input class="avisfrom" type="email" name="email" placeholder="Email" required>
-                        <textarea name="review" rows="4" placeholder="Votre avis..." required></textarea>
+                        <input class="avisform" type="text" name="authorFirstName" placeholder="Prénom" required>
+                        <input class="avisform" type="text" name="authorLastName" placeholder="Nom" required>
+                        <input class="avisfrom" type="email" name="authorEmail" placeholder="Email" required>
+                        <textarea name="content" rows="4" placeholder="Votre avis..." required></textarea>
 
                         <button class="envoyer-avis" type="submit">Envoyer avis</button>
                     </form>
@@ -486,7 +486,7 @@
 
                     <label for="idCard">N° CNI</label>
                     <input type="text" id="idCard" placeholder="N° CNI"  name="NID">
-                    <button type="button" onclick="generateCalendar()" data-next class="animated-button">
+                    <button type="submit"  data-next class="animated-button">
                         <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
@@ -501,9 +501,10 @@
                         </svg>
                     </button>
                 </div>
+            </form>
 
-                <!-- Step 3-2: calendrier -->
-                <div class="step" data-step="2">
+                <!-- Step 4: calendrier -->
+                <!-- <div id="reservation-step4" class="step" data-step="2">
                     <h3>Selectionner une Date</h3>
                     <div id="calendar"></div>
                     <button type="button" data-previous class="animated-button">
@@ -520,7 +521,7 @@
                             </path>
                         </svg>
                     </button>
-                    <button type="button" data-next class="animated-button">
+                    <button id="button-confirmer-calendrier" type="button" data-next class="animated-button">
                         <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
@@ -534,10 +535,10 @@
                             </path>
                         </svg>
                     </button>
-                </div>
+                </div> -->
 
-                <!-- Step 3-3:Confirmation -->
-                <div class="step" data-step="3">
+                <!-- Step 5:Confirmation -->
+                <div  id="reservation-step5" class="step" data-step="3">
                     <div style="text-align: center; padding: 30px;">
                         <svg width="100" height="100" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="10" stroke="#4caf50" stroke-width="2" />
@@ -561,7 +562,6 @@
                         </button>
                     </div>
                 </div>
-            </form>
         </div>
     </dialog>
 

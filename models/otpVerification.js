@@ -33,6 +33,5 @@ const {Sequelize, DataTypes} = require('sequelize');
         }
     });
  
-module.exports = OtpVerification;
 
 

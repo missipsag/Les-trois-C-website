@@ -38,7 +38,7 @@ const Sequelize = require("sequelize")
         }
     });
 
-module.exports = Review;
+
 
 
 const SQL_CREATE_REVIEW_TABLE = "CREATE TABLE IF NOT EXISTS reviews ("

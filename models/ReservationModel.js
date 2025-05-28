@@ -7,41 +7,54 @@ const SQL_CREATE_RESERVATION_TABLE = "CREATE TABLE IF NOT EXISTS reservations ("
     + "FOREIGN KEY (userId) REFERENCES users(userId)"
     + ");"
 
-const Sequelize = require("sequelize")
+const {Sequelize, DataTypes} = require("sequelize")
 const sequelize = require("../config/db");
+const userModel = require("./UserModels")
 
-const Reservation = sequelize.define('Reservation', {
+
+    const Reservation =  sequelize.define('Reservation', {
         reservationId: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             primaryKey: true,
             allowNull: false
         },
         roomId: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         userId: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         reservationDate: {
-            type: Sequelize.DATEONLY,
+            type: DataTypes.DATEONLY,
             allowNull: false
+        },
+        status: {
+            type: DataTypes.ENUM('pending', 'confirmed'),
+            defaultValue: 'pending'
         }
     },
-    {
-        foreignKeyConstraints: true,
-        references: {
-            userId: {
-                model: 'users',
-                key: 'userId'
-            },
-            roomId: {
-                model: 'rooms',
-                key: 'roomId'
+        {
+            timestamps: true, // Automatically adds createdAt and updatedAt fields
+            tableName: 'Reservations', // Explicitly set the table name
+    
+    
+            foreignKeyConstraints: true,
+            references: {
+                userId: {
+                    model: 'users',
+                    key: 'userId'
+                },
+                roomId: {
+                    model: 'rooms',
+                    key: 'roomId'
+                }
             }
         }
-    }
-);
+    )
 
-module.exports = Reservation;
+
+
+
+

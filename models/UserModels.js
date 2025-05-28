@@ -1,39 +1,45 @@
-const sequelize  = require("../config/db");
-const Sequelize = require("sequelize");
-    const User = sequelize.define('User', {
+const sequelize = require("../config/db");
+const {Sequelize, DataTypes} = require("sequelize");
+const reservationModel = require("./ReservationModel"); // Assuming ReservationModel is in the same directory
+
+
+
+const User =  sequelize.define('User', {
         userId: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             primaryKey: true,
             allowNull: false,
             unique: true
         },
         firstName: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         lastName: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         email: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true
         },
         NID: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true
         },
         phone: {
-            type: Sequelize.STRING
+            type: DataTypes.STRING
         },
         role: {
-            type: Sequelize.ENUM('user', 'admin')
+            type: DataTypes.ENUM('user', 'admin')
         }
     });
 
-module.exports = User;
+ 
+
+
 
 
 

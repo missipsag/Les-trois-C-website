@@ -80,9 +80,9 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
         document.head.appendChild(link);
     }
     // Générer un calendrier simple avec les dates dispos 
-    function generateCalendar(form, calendarMonth = null , calendarYear = null) {
+module.exports.generateCalendar = function (step, calendarMonth = null , calendarYear = null) {
         const availableDates = ['2025-05-20', '2025-05-21', '2025-05-25', '2025-05-28'];
-        const calendarEl = form.querySelector('#calendar');
+        const calendarEl = step.querySelector('#calendar');
         if (!calendarEl) return;
         calendarEl.innerHTML = '';
 
@@ -105,7 +105,7 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
                 prevMonth = 11;
                 prevYear -= 1;
             }
-            generateCalendar(form, prevMonth, prevYear);
+            generateCalendar(step, prevMonth, prevYear);
         };
 
         const nextBtn = document.createElement('button');
@@ -118,7 +118,7 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
                 nextMonth = 0;
                 nextYear += 1;
             }
-            generateCalendar(form, nextMonth, nextYear);
+            generateCalendar(step, nextMonth, nextYear);
         };
 
         const monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
@@ -215,3 +215,6 @@ document.querySelectorAll("[data-multi-step]").forEach(multiStepForm => {
     window.generateCalendar = () => generateCalendar(multiStepForm);
 });
   
+
+
+

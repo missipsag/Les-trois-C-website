@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/Accueil.css">
-    <link rel="stylesheet" href="../CSS/modals.css">
-    <link rel="stylesheet" href="../CSS/form.css">
+    <link rel="stylesheet" href="../../public/styles/Accueil.css">
+    <link rel="stylesheet" href="../../public/styles/modals.css">
+    <link rel="stylesheet" href="../../public/styles/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script defer src="../../controllers/modals.js"></script>
-    <script defer src="../../controllers/form.js"></script>
-    <script defer src="../../controllers/emailVerif.js"></script>
-    <script defer src="../../controllers/scroll.js"></script>
+    <script defer src="../../public/scripts/modal.js"></script>
+    <script defer src="../../public/scripts/form.js"></script>
+    <script defer src="../../public/scripts/emailVerification.js"></script>
+    <script defer src="../../public/scripts/scroll.js"></script>
     <title>Le Cactus</title>
 </head>
 <body>
@@ -368,7 +368,7 @@ Je vous remercie énormément encore une fois, je vous souhaite beaucoup de réu
             </div>
             <div class="form-group">
               <label for="event-type">Type d'événement</label>
-              <select id="ev-type" name="ev-type" required>
+              <select id="event-type" name="ev-type" required>
                 <option value="">Selectionner le type</option>
                 <option value="mariage">Mariage</option>
                 <option value="conference">Conférence</option>
@@ -519,7 +519,10 @@ Je vous remercie énormément encore une fois, je vous souhaite beaucoup de réu
             </button>
           </div>
         </div>
-        <script>
+      </form>
+    </div>
+  </dialog>
+<script>
           function ReservationDetails() {
             var espace = document.getElementById('typeEspace')?.value?.toLowerCase();
             if (espace === 'Mariages') {
@@ -530,10 +533,17 @@ Je vous remercie énormément encore une fois, je vous souhaite beaucoup de réu
               window.location.href = 'special.html';
             }
           }
+          document.getElementById('contactForm').addEventListener('submit', async(e)=>{
+            e.preventDefault();
+            const data = Object.fromEntries(new FormData(e.target).entries());
+            const res = await fetch('/api/contact',{
+              method: 'POST',
+              headers :{ 'content-Type': 'application/json' },
+              body: JSON.stringify(data)
+            });
+            const result = await res.json();
+            alert(result.message || result.error);
+          });
         </script>
-      </form>
-    </div>
-  </dialog>
-
 </body>
 </html>
